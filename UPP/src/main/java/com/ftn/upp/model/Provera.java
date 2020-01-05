@@ -18,8 +18,8 @@ public class Provera {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(Long idD) {
+        this.id = idD;
     }
 
     public String getName() {
