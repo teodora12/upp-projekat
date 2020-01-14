@@ -1,1 +1,0 @@
-insert into provera(name) values ("ime");

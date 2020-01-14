@@ -2,17 +2,94 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="362c3c6a-76ab-4f8d-9399-c51649cb5909" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UPP.iml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_uuid_java_uuid_generator_3_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_dbcp_commons_dbcp_1_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_pool_commons_pool_1_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_2_10_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_camunda_bpm_camunda_engine_7_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_camunda_bpm_camunda_engine_spring_7_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_camunda_bpm_dmn_camunda_engine_dmn_7_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_camunda_bpm_dmn_camunda_engine_feel_api_7_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_camunda_bpm_dmn_camunda_engine_feel_juel_7_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_camunda_bpm_model_camunda_bpmn_model_7_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_camunda_bpm_model_camunda_cmmn_model_7_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_camunda_bpm_model_camunda_dmn_model_7_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_camunda_bpm_model_camunda_xml_model_7_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_camunda_bpm_springboot_camunda_bpm_spring_boot_starter_3_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_camunda_commons_camunda_commons_logging_1_7_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_camunda_commons_camunda_commons_typed_values_1_7_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_camunda_commons_camunda_commons_utils_1_7_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_4_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/controller/JournalController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/dto/FormFieldsDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/dto/NewJournalDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/dto/RegisterDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/model/ScientificField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/kreiranjeCasopisa.bpmn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/registracija.bpmn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/controller/JournalController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/controller/UserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/dto/FormFieldsDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/dto/NewJournalDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/dto/RegisterDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/model/ScientificField.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/model/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/repository/UserRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/service/UserService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/kreiranjeCasopisa.bpmn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/registracija.bpmn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/app.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/home-page/home-page.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/home-page/home-page.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/home-page/home-page.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/journal-new/journal-new.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/journal-new/journal-new.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/journal-new/journal-new.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/login-page/login-page.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/login-page/login-page.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/login-page/login-page.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/navbar/navbar.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/navbar/navbar.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/navbar/navbar.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/registration-page/registration-page.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/registration-page/registration-page.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/registration-page/registration-page.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/service/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ftn/upp/model/Provera.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/model/Provera.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/import.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/upp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UPPfrontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UPPfrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UPPfrontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UPPfrontend/proxy.conf.json" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/proxy.conf.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -33,14 +110,23 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/FAKULTET/MASTER!!!!!!/UPP/primer/primer/demo" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Teodora\.IntelliJIdea2018.3\upravljanjePP\UPP\src\main\resources" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="UppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -73,17 +159,120 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1578239950326</updated>
-      <workItem from="1578239977535" duration="356000" />
+      <workItem from="1578239977535" duration="1249000" />
+      <workItem from="1578768236302" duration="8518000" />
+      <workItem from="1578855331999" duration="998000" />
+      <workItem from="1578909810703" duration="15133000" />
+      <workItem from="1578988909543" duration="3875000" />
     </task>
+    <task id="LOCAL-00001" summary="first commit back">
+      <created>1578240576152</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1578240576152</updated>
+    </task>
+    <task id="LOCAL-00002" summary="first commit backend">
+      <created>1578240641244</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1578240641244</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first commit back" />
+    <MESSAGE value="first commit backend" />
+    <option name="LAST_COMMIT_MESSAGE" value="first commit backend" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="218" y="0" key="CommitChangelistDialog2" timestamp="1578240573991">
+    <state x="488" y="81" key="#com.intellij.ide.util.MemberChooser" timestamp="1578993356257">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="218" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1578240573991" />
+    <state x="488" y="81" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1578993356257" />
+    <state x="218" y="0" key="CommitChangelistDialog2" timestamp="1578994122895">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="218" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1578994122895" />
+    <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1578921707581">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1578921707581" />
+    <state width="1323" height="143" key="GridCell.Tab.0.bottom" timestamp="1578994123114">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="143" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1578994123114" />
+    <state width="1323" height="143" key="GridCell.Tab.0.center" timestamp="1578994123114">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="143" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1578994123114" />
+    <state width="1323" height="143" key="GridCell.Tab.0.left" timestamp="1578994123114">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="143" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1578994123114" />
+    <state width="1323" height="143" key="GridCell.Tab.0.right" timestamp="1578994123114">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="143" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1578994123114" />
+    <state width="1323" height="143" key="GridCell.Tab.1.bottom" timestamp="1578994123114">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="143" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1578994123114" />
+    <state width="1323" height="143" key="GridCell.Tab.1.center" timestamp="1578994123114">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="143" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1578994123114" />
+    <state width="1323" height="143" key="GridCell.Tab.1.left" timestamp="1578994123114">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="143" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1578994123114" />
+    <state width="1323" height="143" key="GridCell.Tab.1.right" timestamp="1578994123114">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="143" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1578994123114" />
+    <state width="1323" height="143" key="GridCell.Tab.2.bottom" timestamp="1578994123114">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="143" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1578994123114" />
+    <state width="1323" height="143" key="GridCell.Tab.2.center" timestamp="1578994123114">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="143" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1578994123114" />
+    <state width="1323" height="143" key="GridCell.Tab.2.left" timestamp="1578994123114">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="143" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1578994123114" />
+    <state width="1323" height="143" key="GridCell.Tab.2.right" timestamp="1578994123114">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="143" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1578994123114" />
+    <state x="275" y="98" key="Vcs.Push.Dialog.v2" timestamp="1578240683649">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="98" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1578240683649" />
+    <state x="378" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1578989373155">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="378" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1578989373155" />
+    <state x="346" y="49" key="search.everywhere.popup" timestamp="1578773842489">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1578773842489" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ftn/upp/controller/UserController.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
