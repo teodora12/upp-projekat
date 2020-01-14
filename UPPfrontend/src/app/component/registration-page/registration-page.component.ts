@@ -36,8 +36,18 @@ export class RegistrationPageComponent implements OnInit {
           o.push({fieldId : property, fieldValue : value[property]});
       }
 
+      this.user.name = value["name"];
+      this.user.lastname = value["lastname"];
+      this.user.email = value["email"];
+      this.user.password = value["password"];
+      this.user.state = value["state"];
+      this.user.city = value["city"];
+      this.user.title = value["title"];
+      this.user.isReviewer = value["reviewer"];
+      this.user.numOfScientificFields = value["scientificFields"];
+
       console.log(o);
-      const x = this.userService.register(o, this.formFieldsDTO.taskId);
+      const x = this.userService.register(this.user, o, this.formFieldsDTO.taskId);
 
       x.subscribe(
           res => {

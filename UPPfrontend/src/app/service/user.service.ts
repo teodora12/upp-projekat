@@ -12,7 +12,7 @@ export class UserService {
     return this.http.get('api/users/startProcess');
   }
 
-  register(user, taskId): any {
+  register(user, o, taskId): any {
     return this.http.post('api/users/register', user);
   }
 }
