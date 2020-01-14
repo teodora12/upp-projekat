@@ -23,6 +23,9 @@ public class User {
     private String password;
 
     @Column
+    private String country;
+
+    @Column
     private String city;
 
     @Column
@@ -35,6 +38,14 @@ public class User {
     private boolean isActive;
 
     public User() {
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public Long getId() {
