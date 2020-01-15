@@ -2,17 +2,59 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="362c3c6a-76ab-4f8d-9399-c51649cb5909" name="Default Changelist" comment="registracija">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_6_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_2_2_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_2_1_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_2_1_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_2_1_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/common/TimeProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/controller/AuthenticationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/model/Authority.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/security/TokenUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/security/auth/JwtAuthenticationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/security/auth/RestAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/security/auth/TokenAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/security/auth/TokenBasedAuthentication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/CustomUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/import.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/common/TimeProvider.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/config/WebSecurityConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/controller/AuthenticationController$PasswordChanger.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/controller/AuthenticationController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/model/Authority.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/security/TokenUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/security/auth/JwtAuthenticationRequest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/security/auth/RestAuthenticationEntryPoint.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/security/auth/TokenAuthenticationFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/security/auth/TokenBasedAuthentication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/service/CustomUserDetailsService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/import.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/service/security/can-activate.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/service/security/token-interceptor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a1bc6a5a-2604-4650-ba97-0dc486dffad5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a1bc6a5a-2604-4650-ba97-0dc486dffad5/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffe9b7d6-fd86-4a3b-ba52-b340b815a6ce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffe9b7d6-fd86-4a3b-ba52-b340b815a6ce.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftn/upp/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ftn/upp/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftn/upp/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ftn/upp/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ftn/upp/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ftn/upp/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/repository/UserRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ftn/upp/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/component/registration-page/registration-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/registration-page/registration-page.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/upp-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/upp-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/upp-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/upp-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/upp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UPPfrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UPPfrontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/component/login-page/login-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/login-page/login-page.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/component/login-page/login-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/login-page/login-page.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/service/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/service/user.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,12 +151,7 @@
       <list>
         <serviceView>
           <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:upp@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </treeState>
         </serviceView>
@@ -135,7 +172,9 @@
       <workItem from="1578768236302" duration="8518000" />
       <workItem from="1578855331999" duration="998000" />
       <workItem from="1578909810703" duration="15133000" />
-      <workItem from="1578988909543" duration="8211000" />
+      <workItem from="1578988909543" duration="9117000" />
+      <workItem from="1579005396411" duration="11550000" />
+      <workItem from="1579071957054" duration="1939000" />
     </task>
     <task id="LOCAL-00001" summary="first commit back">
       <created>1578240576152</created>
@@ -158,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578994166329</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="registracija - front ceo, na backend-u fali slanje mejla i potvrda">
+      <created>1578999603221</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1578999603221</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,81 +214,86 @@
     <MESSAGE value="first commit back" />
     <MESSAGE value="first commit backend" />
     <MESSAGE value="registracija" />
-    <option name="LAST_COMMIT_MESSAGE" value="registracija" />
+    <MESSAGE value="registracija - front ceo, na backend-u fali slanje mejla i potvrda" />
+    <option name="LAST_COMMIT_MESSAGE" value="registracija - front ceo, na backend-u fali slanje mejla i potvrda" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="275" y="23" key="#Assign_Data_Sources" timestamp="1579032998218">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="23" key="#Assign_Data_Sources/0.0.1366.728@0.0.1366.728" timestamp="1579032998218" />
     <state x="275" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578998384063">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1578998384063" />
-    <state x="488" y="81" key="#com.intellij.ide.util.MemberChooser" timestamp="1578995013245">
+    <state x="488" y="81" key="#com.intellij.ide.util.MemberChooser" timestamp="1579010846037">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="81" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1578995013245" />
-    <state x="218" y="0" key="CommitChangelistDialog2" timestamp="1578994158377">
+    <state x="488" y="81" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1579010846037" />
+    <state x="218" y="0" key="CommitChangelistDialog2" timestamp="1578999596246">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="218" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1578994158377" />
+    <state x="218" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1578999596246" />
     <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1578921707581">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1578921707581" />
-    <state width="1323" height="333" key="GridCell.Tab.0.bottom" timestamp="1578998019103">
+    <state width="1323" height="130" key="GridCell.Tab.0.bottom" timestamp="1579073753713">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="333" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1578998019103" />
-    <state width="1323" height="333" key="GridCell.Tab.0.center" timestamp="1578998019103">
+    <state width="1323" height="130" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579073753713" />
+    <state width="1323" height="130" key="GridCell.Tab.0.center" timestamp="1579073753713">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="333" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1578998019103" />
-    <state width="1323" height="333" key="GridCell.Tab.0.left" timestamp="1578998019088">
+    <state width="1323" height="130" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1579073753713" />
+    <state width="1323" height="130" key="GridCell.Tab.0.left" timestamp="1579073753713">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="333" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1578998019088" />
-    <state width="1323" height="333" key="GridCell.Tab.0.right" timestamp="1578998019103">
+    <state width="1323" height="130" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1579073753713" />
+    <state width="1323" height="130" key="GridCell.Tab.0.right" timestamp="1579073753713">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="333" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1578998019103" />
-    <state width="1323" height="333" key="GridCell.Tab.1.bottom" timestamp="1578998062023">
+    <state width="1323" height="130" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1579073753713" />
+    <state width="1323" height="130" key="GridCell.Tab.1.bottom" timestamp="1579073360546">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="333" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1578998062023" />
-    <state width="1323" height="333" key="GridCell.Tab.1.center" timestamp="1578998062023">
+    <state width="1323" height="130" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579073360546" />
+    <state width="1323" height="130" key="GridCell.Tab.1.center" timestamp="1579073360545">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="333" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1578998062023" />
-    <state width="1323" height="333" key="GridCell.Tab.1.left" timestamp="1578998062023">
+    <state width="1323" height="130" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1579073360545" />
+    <state width="1323" height="130" key="GridCell.Tab.1.left" timestamp="1579073360545">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="333" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1578998062023" />
-    <state width="1323" height="333" key="GridCell.Tab.1.right" timestamp="1578998062023">
+    <state width="1323" height="130" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1579073360545" />
+    <state width="1323" height="130" key="GridCell.Tab.1.right" timestamp="1579073360546">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="333" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1578998062023" />
-    <state width="1323" height="333" key="GridCell.Tab.2.bottom" timestamp="1578996621993">
+    <state width="1323" height="130" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1579073360546" />
+    <state width="1323" height="130" key="GridCell.Tab.2.bottom" timestamp="1579041392841">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="333" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1578996621993" />
-    <state width="1323" height="333" key="GridCell.Tab.2.center" timestamp="1578996621993">
+    <state width="1323" height="130" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579041392841" />
+    <state width="1323" height="130" key="GridCell.Tab.2.center" timestamp="1579041392841">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="333" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1578996621993" />
-    <state width="1323" height="333" key="GridCell.Tab.2.left" timestamp="1578996621993">
+    <state width="1323" height="130" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1579041392841" />
+    <state width="1323" height="130" key="GridCell.Tab.2.left" timestamp="1579041392841">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="333" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1578996621993" />
-    <state width="1323" height="333" key="GridCell.Tab.2.right" timestamp="1578996621993">
+    <state width="1323" height="130" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1579041392841" />
+    <state width="1323" height="130" key="GridCell.Tab.2.right" timestamp="1579041392841">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="333" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1578996621993" />
-    <state x="275" y="98" key="Vcs.Push.Dialog.v2" timestamp="1578994238981">
+    <state width="1323" height="130" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1579041392841" />
+    <state x="275" y="98" key="Vcs.Push.Dialog.v2" timestamp="1578999660582">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="98" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1578994238981" />
-    <state x="378" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1578989373155">
+    <state x="275" y="98" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1578999660582" />
+    <state x="378" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1579071954148">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="378" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1578989373155" />
+    <state x="378" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1579071954148" />
     <state x="346" y="49" key="search.everywhere.popup" timestamp="1578773842489">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

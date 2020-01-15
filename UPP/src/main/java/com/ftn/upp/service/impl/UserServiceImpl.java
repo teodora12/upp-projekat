@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService {
         }
         user.setReviewer(registerDTO.isReviewer());
         user.setCountry(registerDTO.getState());
-        user.setActive(true);  //ovo je za sad true, kad se bude slanje mejla uradilo onda ovde ide false
+      //  user.(true);  //ovo je za sad true, kad se bude slanje mejla uradilo onda ovde ide false
 
         this.userRepository.save(user);
 

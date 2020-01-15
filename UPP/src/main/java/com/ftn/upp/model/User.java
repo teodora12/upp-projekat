@@ -1,10 +1,22 @@
 package com.ftn.upp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.joda.time.DateTime;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
+import java.io.Serializable;
+import java.sql.Timestamp;
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table
-public class User {
+public class User implements Serializable,UserDetails{
+
+    private  static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +30,9 @@ public class User {
 
     @Column
     private String email;
+
+    @Column
+    private String username;
 
     @Column
     private String password;
@@ -35,9 +50,59 @@ public class User {
     private boolean isReviewer;
 
     @Column
-    private boolean isActive;
+    private boolean enabled;
+
+    @Column
+    private Timestamp lastPasswordResetDate;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "user_authority",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
+    private List<Authority> authorities;
+
 
     public User() {
+    }
+
+
+    public Timestamp getLastPasswordResetDate() {
+        return lastPasswordResetDate;
+    }
+
+    public void setLastPasswordResetDate(Timestamp lastPasswordResetDate) {
+        this.lastPasswordResetDate = lastPasswordResetDate;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    @Override
+    public boolean isEnabled(){
+        return enabled;
+    }
+
+    @JsonIgnore
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @JsonIgnore
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @JsonIgnore
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getCountry() {
@@ -80,6 +145,11 @@ public class User {
         this.email = email;
     }
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -112,11 +182,4 @@ public class User {
         isReviewer = reviewer;
     }
 
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
-    }
 }
