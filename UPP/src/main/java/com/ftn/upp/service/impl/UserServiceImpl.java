@@ -5,6 +5,10 @@ import com.ftn.upp.model.User;
 import com.ftn.upp.repository.UserRepository;
 import com.ftn.upp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.mail.MailException;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +18,12 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private JavaMailSender javaMailSender;
+
+    @Autowired
+    private Environment environment;
 
 /*
 
@@ -84,5 +94,20 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> findAll() {
         return this.userRepository.findAll();
+    }
+
+    @Override
+    public void SendMailForActivation(User user) throws MailException, InterruptedException {
+
+        System.out.println("Slanje emaila...");
+
+        SimpleMailMessage mail = new SimpleMailMessage();
+        mail.setTo(user.getEmail());
+        mail.setFrom(environment.getProperty("spring.mail.username"));
+        mail.setSubject("Primer slanja emaila pomocu asinhronog Spring taska");
+        mail.setText("Pozdrav " + user.getName() + ",\n\nhvala što pratiš ISA.");
+        javaMailSender.send(mail);
+
+        System.out.println("Email poslat!");
     }
 }
