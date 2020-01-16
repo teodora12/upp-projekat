@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../service/user.service';
 import {Router} from '@angular/router';
+import {ToastrManager} from "ng6-toastr-notifications";
 
 @Component({
   selector: 'app-registration-page',
@@ -16,7 +17,7 @@ export class RegistrationPageComponent implements OnInit {
   private enumValues = [];
   private tasks = [];
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(private userService: UserService, private router: Router, private toastr: ToastrManager) {
 
     this.user = {name: '', lastname: '', email: '', password: '', state: '', city: '', title: '', isReviewer: false,
       numOfScientificFields: ''};
@@ -47,18 +48,29 @@ export class RegistrationPageComponent implements OnInit {
       this.user.numOfScientificFields = value["scientificFields"];
 
       console.log(o);
-      const x = this.userService.register(this.user, o, this.formFieldsDTO.taskId);
+/*
+      const x = this.userService.register(this.user);
 
       x.subscribe(
           res => {
               console.log(res);
 
-              alert('You registered successfully!');
+              console.log('You registered successfully!');
           },
           err => {
-              console.log('Error occured');
+              console.log('Error occured register');
           }
       );
+*/
+      this.userService.submitTask(o, this.formFieldsDTO.taskId).subscribe( res => {
+          console.log(res);
+          this.toastr.successToastr('You registered successfully!', 'Success');
+      }, err => {
+              console.log('Error occured submit');
+
+          }
+      );
+
   }
 
   getFields() {

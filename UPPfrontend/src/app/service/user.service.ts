@@ -19,8 +19,13 @@ export class UserService {
     return this.http.get('api/users/startProcess');
   }
 
-  register(user, o, taskId): any {
-    return this.http.post('api/users/register', user);
+  register(user): any {
+ //     return this.http.post('api/users/register', user);
+  }
+
+  submitTask(o, taskId): any {
+      return this.http.post('api/users/register/'.concat(taskId), o);
+
   }
 
 
