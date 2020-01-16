@@ -198,7 +198,7 @@
     <bpmn:sequenceFlow id="SequenceFlow_0ggq8yf" sourceRef="Task_1paqdxz" targetRef="EndEvent_0778jub" />
     <bpmn:sequenceFlow id="SequenceFlow_0q0pwwg" sourceRef="saveUserServiceTask" targetRef="sendingEmailServiceTask" />
     <bpmn:sequenceFlow id="SequenceFlow_0w6ur5p" sourceRef="saveDataServiceTask" targetRef="ProcessingServiceTask" />
-    <bpmn:serviceTask id="saveDataServiceTask" name="SaveDataService" camunda:expression="${true}">
+    <bpmn:serviceTask id="saveDataServiceTask" name="SaveDataService" camunda:class="${true}">
       <bpmn:incoming>SequenceFlow_1sidlxu</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0w6ur5p</bpmn:outgoing>
     </bpmn:serviceTask>
@@ -206,11 +206,11 @@
       <bpmn:incoming>SequenceFlow_0zav45m</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0q0pwwg</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:sequenceFlow id="SequenceFlow_0o0s33g" sourceRef="saveRegistrationSubmissionDataService" targetRef="Task2_ScientificFields" />
     <bpmn:serviceTask id="saveRegistrationSubmissionDataService" name="SaveRegistrationSubmissionDataService" camunda:class="com.ftn.upp.service.camundaService.SaveRegistrationSubmissionData">
       <bpmn:incoming>SequenceFlow_1wlgad6</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0o0s33g</bpmn:outgoing>
     </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="SequenceFlow_0o0s33g" sourceRef="saveRegistrationSubmissionDataService" targetRef="Task2_ScientificFields" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_Registration">
@@ -389,15 +389,15 @@
       <bpmndi:BPMNShape id="ServiceTask_01a9obz_di" bpmnElement="saveUserServiceTask">
         <dc:Bounds x="1340" y="227" width="100" height="80" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1vewvbc_di" bpmnElement="saveRegistrationSubmissionDataService">
+        <dc:Bounds x="400" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0o0s33g_di" bpmnElement="SequenceFlow_0o0s33g">
         <di:waypoint x="500" y="240" />
         <di:waypoint x="560" y="240" />
         <di:waypoint x="560" y="267" />
         <di:waypoint x="580" y="267" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="ServiceTask_1vewvbc_di" bpmnElement="saveRegistrationSubmissionDataService">
-        <dc:Bounds x="400" y="200" width="100" height="80" />
-      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>

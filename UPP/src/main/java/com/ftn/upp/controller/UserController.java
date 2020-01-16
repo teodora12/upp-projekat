@@ -3,7 +3,9 @@ package com.ftn.upp.controller;
 import com.ftn.upp.dto.FormFieldsDTO;
 import com.ftn.upp.dto.FormSubmissionDTO;
 import com.ftn.upp.dto.RegisterDTO;
+import com.ftn.upp.model.ScientificField;
 import com.ftn.upp.model.User;
+import com.ftn.upp.service.ScientificFieldService;
 import com.ftn.upp.service.UserService;
 import org.camunda.bpm.engine.FormService;
 import org.camunda.bpm.engine.RuntimeService;
@@ -37,6 +39,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private ScientificFieldService scientificFieldService;
+
     @GetMapping(value = "/startProcess")
     public ResponseEntity<FormFieldsDTO> getFieldsForRegistration(){
 
@@ -50,7 +55,6 @@ public class UserController {
 
     @PostMapping(value = "/register/{taskId}")
     public ResponseEntity register(@RequestBody List<FormSubmissionDTO> dto, @PathVariable String taskId){
-
         HashMap<String , Object> map = this.mapListToDto(dto);
 
         Task task = this.taskService.createTaskQuery().taskId(taskId).singleResult();
@@ -58,10 +62,59 @@ public class UserController {
         runtimeService.setVariable(processInstanceId, "registration", dto);
         formService.submitTaskForm(taskId,map);
 
+        long numOfScientificFields = 1;
+        for(FormSubmissionDTO num : dto){
+            if(num.getFieldId().equals("scientificFields")){
+                numOfScientificFields = Long.parseLong(num.getFieldValue());
+            }
+        }
+        return new ResponseEntity(numOfScientificFields,HttpStatus.OK);
+    }
+    @PostMapping(value = "/postScientificField/{taskId}")
+    public ResponseEntity postScientificField(@RequestBody List<FormSubmissionDTO> dto, @PathVariable String taskId){
+        HashMap<String , Object> map = this.mapListToDto(dto);
+
+        Task task = this.taskService.createTaskQuery().taskId(taskId).singleResult();
+
+        FormSubmissionDTO scientificFieldNameDTO = new FormSubmissionDTO();
+        for(FormSubmissionDTO dto1: dto){
+            if(dto1.getFieldId().equals("scientificField")){
+                scientificFieldNameDTO = dto1;
+            }
+        }
+
+        ScientificField scientificField = this.scientificFieldService.findScientificFieldByName(scientificFieldNameDTO.getFieldValue());
+        List<FormSubmissionDTO> registration = (List<FormSubmissionDTO>) runtimeService.getVariable(task.getExecutionId(),"registration");
+
+
+        String username = null;
+        for(FormSubmissionDTO dto1: registration){
+            if(dto1.getFieldId().equals("username")){
+                username = dto1.getFieldValue();
+            }
+        }
+        User user = this.userService.findUserByUsername(username);
+
+        if(user == null){
+            return ResponseEntity.notFound().build();
+        }
+
+        if(scientificField == null){
+            ScientificField scientificFieldNew = new ScientificField();
+            scientificFieldNew.setName(scientificFieldNameDTO.getFieldValue());
+            this.scientificFieldService.save(scientificFieldNew);
+            user.getScientificFields().add(scientificFieldNew);
+            this.userService.saveUser(user);
+        }
+
+        user.getScientificFields().add(scientificField);
+        this.userService.saveUser(user);
+
+        formService.submitTaskForm(taskId,map);
         return ResponseEntity.ok().build();
 
-    }
 
+    }
 /*    @PostMapping(value = "/register")
     public ResponseEntity<User> register(@RequestBody RegisterDTO registerDTO) {
 
@@ -75,6 +128,18 @@ public class UserController {
 
 
     }*/
+
+    @GetMapping(value = "/getScientificFieldForm/{processInstanceId}")
+    public ResponseEntity<FormFieldsDTO> getFieldsForScientificField(@PathVariable String processInstanceId){
+
+
+        Task task = taskService.createTaskQuery().processInstanceId(processInstanceId).list().get(0);
+        TaskFormData taskFormData = formService.getTaskFormData(task.getId());
+        List<FormField> fields = taskFormData.getFormFields();
+
+        return new ResponseEntity(new FormFieldsDTO(task.getId(),processInstanceId,fields), HttpStatus.OK);
+    }
+
 
     private HashMap<String, Object> mapListToDto(List<FormSubmissionDTO> list) {
         HashMap<String, Object> map = new HashMap<String, Object>();

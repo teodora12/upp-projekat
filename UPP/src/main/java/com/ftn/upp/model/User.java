@@ -2,6 +2,8 @@ package com.ftn.upp.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ftn.upp.dto.FormSubmissionDTO;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.joda.time.DateTime;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -63,6 +65,12 @@ public class User implements Serializable,UserDetails{
             inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
     private List<Authority> authorities;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @JoinTable(name = "user_scientificFields",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "scientificField_id", referencedColumnName = "id"))
+    private List<ScientificField> scientificFields;
 
     public User() {
     }
@@ -102,6 +110,13 @@ public class User implements Serializable,UserDetails{
 
     }
 
+    public List<ScientificField> getScientificFields() {
+        return scientificFields;
+    }
+
+    public void setScientificFields(List<ScientificField> scientificFields) {
+        this.scientificFields = scientificFields;
+    }
 
     public Timestamp getLastPasswordResetDate() {
         return lastPasswordResetDate;
