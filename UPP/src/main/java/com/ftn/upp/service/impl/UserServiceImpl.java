@@ -50,6 +50,7 @@ public class UserServiceImpl implements UserService {
         user.setCity(registerDTO.getCity());
         user.setName(registerDTO.getName());
         user.setLastname(registerDTO.getLastname());
+        user.setUsername(registerDTO.getUsername());
         user.setPassword(registerDTO.getPassword());  //ovde dodati encode() kad se ubaci security
         if(!registerDTO.getTitle().equals("") && registerDTO.getTitle()!=null){
             user.setTitle(registerDTO.getTitle());
@@ -63,5 +64,25 @@ public class UserServiceImpl implements UserService {
         return user;
 
 
+    }
+
+    @Override
+    public User findUserByEmail(String email) {
+        return this.userRepository.findUserByEmail(email);
+    }
+
+    @Override
+    public void saveUser(User user) {
+        this.userRepository.save(user);
+    }
+
+    @Override
+    public User findUserByUsername(String username) {
+        return this.userRepository.findUserByUsername(username);
+    }
+
+    @Override
+    public List<User> findAll() {
+        return this.userRepository.findAll();
     }
 }

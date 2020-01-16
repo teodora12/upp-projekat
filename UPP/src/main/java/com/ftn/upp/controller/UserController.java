@@ -1,6 +1,7 @@
 package com.ftn.upp.controller;
 
 import com.ftn.upp.dto.FormFieldsDTO;
+import com.ftn.upp.dto.FormSubmissionDTO;
 import com.ftn.upp.dto.RegisterDTO;
 import com.ftn.upp.model.User;
 import com.ftn.upp.service.UserService;
@@ -15,11 +16,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -49,16 +48,41 @@ public class UserController {
         return new ResponseEntity(new FormFieldsDTO(task.getId(),processInstance.getId(),fields), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/register")
+    @PostMapping(value = "/register/{taskId}")
+    public ResponseEntity register(@RequestBody List<FormSubmissionDTO> dto, @PathVariable String taskId){
+
+        HashMap<String , Object> map = this.mapListToDto(dto);
+
+        Task task = this.taskService.createTaskQuery().taskId(taskId).singleResult();
+        String processInstanceId = task.getProcessInstanceId();
+        runtimeService.setVariable(processInstanceId, "registration", dto);
+        formService.submitTaskForm(taskId,map);
+
+        return ResponseEntity.ok().build();
+
+    }
+
+/*    @PostMapping(value = "/register")
     public ResponseEntity<User> register(@RequestBody RegisterDTO registerDTO) {
+
 
         User user = this.userService.register(registerDTO);
 
         if(user == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-
         return new ResponseEntity<>(user,HttpStatus.OK);
+
+
+    }*/
+
+    private HashMap<String, Object> mapListToDto(List<FormSubmissionDTO> list) {
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        for(FormSubmissionDTO temp : list){
+            map.put(temp.getFieldId(), temp.getFieldValue());
+        }
+
+        return map;
     }
 
 }

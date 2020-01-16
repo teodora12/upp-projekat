@@ -1,6 +1,7 @@
 package com.ftn.upp.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ftn.upp.dto.FormSubmissionDTO;
 import org.joda.time.DateTime;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -65,6 +67,41 @@ public class User implements Serializable,UserDetails{
     public User() {
     }
 
+    public User(List<FormSubmissionDTO> registrationData){
+
+        List<ScientificField> fields = new ArrayList<>();
+        for(FormSubmissionDTO dto : registrationData) {
+
+            if (dto.getFieldId().equals("name")) {
+                this.name = dto.getFieldValue();
+            } else if (dto.getFieldId().equals("lastname")) {
+                this.lastname = dto.getFieldValue();
+            } else if (dto.getFieldId().equals("city")) {
+                this.city = dto.getFieldValue();
+            } else if (dto.getFieldId().equals("state")) {
+                this.country = dto.getFieldValue();
+            } else if (dto.getFieldId().equals("email")) {
+                this.email = dto.getFieldValue();
+            } else if (dto.getFieldId().equals("username")) {
+                this.username = dto.getFieldValue();
+            } else if (dto.getFieldId().equals("reviewer")) {
+
+                if (dto.getFieldValue() != null) {
+                    if (dto.getFieldValue().equals("true")) {
+                        this.isReviewer = true;
+                    } else {
+                        this.isReviewer = false;
+                    }
+                } else {
+                    this.isReviewer = false;
+                }
+            }
+        }
+
+        this.enabled = false;
+
+    }
+
 
     public Timestamp getLastPasswordResetDate() {
         return lastPasswordResetDate;
@@ -72,6 +109,18 @@ public class User implements Serializable,UserDetails{
 
     public void setLastPasswordResetDate(Timestamp lastPasswordResetDate) {
         this.lastPasswordResetDate = lastPasswordResetDate;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public void setAuthorities(List<Authority> authorities) {
+        this.authorities = authorities;
     }
 
     public String getUsername() {

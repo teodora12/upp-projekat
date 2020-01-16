@@ -20,4 +20,5 @@ com\ftn\upp\dto\FormFieldsDTO.class
 com\ftn\upp\service\UserService.class
 com\ftn\upp\UppApplication.class
 com\ftn\upp\dto\NewJournalDTO.class
+com\ftn\upp\dto\FormSubmissionDTO.class
 com\ftn\upp\controller\AuthenticationController.class

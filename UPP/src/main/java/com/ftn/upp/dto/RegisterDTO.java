@@ -13,6 +13,8 @@ public class RegisterDTO {
 
     private String email;
 
+    private String username;
+
     private String password;
 
     private String state;
@@ -28,7 +30,7 @@ public class RegisterDTO {
     public RegisterDTO() {
     }
 
-    public RegisterDTO(String name, String lastname, String email, String password,
+    public RegisterDTO(String name, String lastname, String email, String password, String username,
                        String state, String city, String title, boolean isReviewer, long numOfScientificFields) {
         this.name = name;
         this.lastname = lastname;
@@ -39,6 +41,15 @@ public class RegisterDTO {
         this.title = title;
         this.isReviewer = isReviewer;
         this.numOfScientificFields = numOfScientificFields;
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getName() {
