@@ -28,10 +28,18 @@ export class UserService {
 
   }
 
+  getFormScientificFields(processInstanceId): any {
+      return this.http.get('api/users/getScientificFieldForm/'.concat(processInstanceId));
+  }
 
-    login(user): any {
-        return this.http.post('api/auth/login', user, {observe: 'response'}).pipe(map(response => response));
-    }
+  submitScientificFields(o, taskId): any {
+      return this.http.post('api/users/postScientificField/'.concat(taskId), o);
+  }
+
+
+  login(user): any {
+      return this.http.post('api/auth/login', user, {observe: 'response'}).pipe(map(response => response));
+  }
 
     getToken(): string {
         const currentUser = JSON.parse(localStorage.getItem('loggedUser'));

@@ -16,6 +16,7 @@ export class RegistrationPageComponent implements OnInit {
   private processInstance = '';
   private enumValues = [];
   private tasks = [];
+  private processInstanceId;
 
   constructor(private userService: UserService, private router: Router, private toastr: ToastrManager) {
 
@@ -64,12 +65,17 @@ export class RegistrationPageComponent implements OnInit {
 */
       this.userService.submitTask(o, this.formFieldsDTO.taskId).subscribe( res => {
           console.log(res);
-          this.toastr.successToastr('You registered successfully!', 'Success');
+          this.toastr.infoToastr('Now type your scientific fields.', 'Success');
+
+          this.router.navigate(['/scientificFields', this.user.numOfScientificFields , this.processInstanceId]);
       }, err => {
               console.log('Error occured submit');
 
           }
       );
+
+
+
 
   }
 
@@ -78,7 +84,7 @@ export class RegistrationPageComponent implements OnInit {
       this.formFieldsDTO = formFieldsDTO;
       this.formFields = formFieldsDTO.formFields;
       this.processInstance = formFieldsDTO.processInstanceId;
-
+      this.processInstanceId = formFieldsDTO.processInstanceId;
       this.formFields.forEach( (field) => {
 
         if ( field.type.name === 'enum') {

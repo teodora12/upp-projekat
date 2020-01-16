@@ -14,6 +14,7 @@ import {ToastrManager, ToastrModule} from 'ng6-toastr-notifications';
 import {CanActivateService} from './service/security/can-activate.service';
 import {TokenInterceptorService} from './service/security/token-interceptor';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ScientificFieldsPageComponent } from './component/scientific-fields-page/scientific-fields-page.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     HomePageComponent,
     RegistrationPageComponent,
     LoginPageComponent,
-    NavbarComponent
+    NavbarComponent,
+    ScientificFieldsPageComponent
   ],
   imports: [
       BrowserModule,
