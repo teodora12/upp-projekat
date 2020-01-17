@@ -66,7 +66,34 @@ public class UserController {
 
     }
 
-        @PostMapping(value = "/register/{taskId}")
+    @PostMapping(value = "/setReviewer/{taskId}")
+    public ResponseEntity submitReviewer(@RequestBody List<FormSubmissionDTO> dto, @PathVariable String taskId) {
+        HashMap<String , Object> map = this.mapListToDto(dto);
+
+        Task task = this.taskService.createTaskQuery().taskId(taskId).singleResult();
+        String processInstanceId = task.getProcessInstanceId();
+        runtimeService.setVariable(processInstanceId, "sumbmissionOfReviewer", dto);
+        formService.submitTaskForm(taskId,map);
+
+        return ResponseEntity.ok().build();
+
+    }
+
+    @GetMapping(value = "/admin/getRequestsForReviewers")
+    public ResponseEntity getReviewers(){
+        Task task = taskService.createTaskQuery().taskCandidateGroup("demo").list().get(0);
+//		Task task = taskService.createTaskQuery().processInstanceId(procesInstanceId).taskCandidateGroup("demo").list().get(0);
+        TaskFormData tfd = formService.getTaskFormData(task.getId());
+        List<FormField> properties = tfd.getFormFields();
+        for(FormField fp : properties) {
+            System.out.println(fp.getId() + fp.getType());
+        }
+
+
+        return new ResponseEntity(new FormFieldsDTO(task.getId(), task.getProcessInstanceId(), properties),HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/register/{taskId}")
     public ResponseEntity register(@RequestBody List<FormSubmissionDTO> dto, @PathVariable String taskId){
         HashMap<String , Object> map = this.mapListToDto(dto);
 

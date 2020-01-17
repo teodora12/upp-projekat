@@ -111,7 +111,7 @@ public class UserServiceImpl implements UserService {
         String url = "http://localhost:4200/activate/" + user.getEmail() + "/" + processInstanceId;
         mail.setText("Pozdrav " + user.getName()+ "! Vas nalog bice aktiviran klikom na sledeci link i potvrdom aktivacije naloga: " + url + ".");
 
-        javaMailSender.send(mail);
+   //     javaMailSender.send(mail);
 
         System.out.println("Email poslat!");
     }

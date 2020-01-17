@@ -89,14 +89,11 @@
     <bpmn:sequenceFlow id="SequenceFlow_16zkiup" name="yes" sourceRef="ExclusiveGateway_Reviewer" targetRef="confirmationReviewerTask">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${reviewer == true and confirmEmail==true}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:userTask id="confirmationReviewerTask" name="ConfirmationReviewerTask" camunda:assignee="demo">
+    <bpmn:userTask id="confirmationReviewerTask" name="ConfirmationReviewerTask" camunda:candidateGroups="demo">
       <bpmn:extensionElements>
         <camunda:formData>
-          <camunda:formField id="confirmReviewer" label="Confirm that the user is reviewer:" type="boolean">
-            <camunda:validation>
-              <camunda:constraint name="required" />
-            </camunda:validation>
-          </camunda:formField>
+          <camunda:formField id="usersUsername" label="User&#39;s username:" type="string" defaultValue="${username}" />
+          <camunda:formField id="confirmReviewer" label="Confirm that the user is reviewer:" type="boolean" />
         </camunda:formData>
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_16zkiup</bpmn:incoming>
@@ -123,7 +120,7 @@
       <bpmn:incoming>SequenceFlow_1qbe4ut</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0mikcrx</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:serviceTask id="saveUserReviewerSeviceTask" name="SaveUserReviewerSeviceTask" camunda:expression="${true}">
+    <bpmn:serviceTask id="saveUserReviewerSeviceTask" name="SaveUserReviewerSeviceTask" camunda:class="com.ftn.upp.service.camundaService.SaveUserAsReviewerService">
       <bpmn:incoming>SequenceFlow_1va90ff</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0nwel2i</bpmn:outgoing>
     </bpmn:serviceTask>
@@ -145,7 +142,7 @@
     <bpmn:sequenceFlow id="SequenceFlow_1va90ff" name="user is reviewer" sourceRef="ExclusiveGateway_01laxpf" targetRef="saveUserReviewerSeviceTask">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${confirmReviewer == true}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:serviceTask id="Task_1paqdxz" name="SaveUserService" camunda:expression="${true}">
+    <bpmn:serviceTask id="Task_1paqdxz" name="SaveUserService" camunda:class="com.ftn.upp.service.camundaService.SaveUserService">
       <bpmn:incoming>SequenceFlow_0mniohk</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0ggq8yf</bpmn:outgoing>
     </bpmn:serviceTask>
