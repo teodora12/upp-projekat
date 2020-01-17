@@ -53,7 +53,20 @@ public class UserController {
         return new ResponseEntity(new FormFieldsDTO(task.getId(),processInstance.getId(),fields), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/register/{taskId}")
+    @PostMapping(value = "/activate/{taskId}")
+    public ResponseEntity activateAccount(@RequestBody List<FormSubmissionDTO> dto, @PathVariable String taskId) {
+        HashMap<String , Object> map = this.mapListToDto(dto);
+
+        Task task = this.taskService.createTaskQuery().taskId(taskId).singleResult();
+        String processInstanceId = task.getProcessInstanceId();
+        runtimeService.setVariable(processInstanceId, "activationOfUserAccount", dto);
+        formService.submitTaskForm(taskId,map);
+
+        return ResponseEntity.ok().build();
+
+    }
+
+        @PostMapping(value = "/register/{taskId}")
     public ResponseEntity register(@RequestBody List<FormSubmissionDTO> dto, @PathVariable String taskId){
         HashMap<String , Object> map = this.mapListToDto(dto);
 
@@ -140,6 +153,12 @@ public class UserController {
         return new ResponseEntity(new FormFieldsDTO(task.getId(),processInstanceId,fields), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/{username}")
+    public User getUserByUsername(@PathVariable String username) {
+        User user = userService.findUserByUsername(username);
+
+        return user;
+    }
 
     private HashMap<String, Object> mapListToDto(List<FormSubmissionDTO> list) {
         HashMap<String, Object> map = new HashMap<String, Object>();

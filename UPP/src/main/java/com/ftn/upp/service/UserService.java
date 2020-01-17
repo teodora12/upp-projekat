@@ -14,6 +14,6 @@ public interface UserService {
     void saveUser(User user);
     User findUserByUsername(String username);
     List<User> findAll();
-    void SendMailForActivation(User user) throws InterruptedException;
+    void SendMailForActivation(User user, String processInstanceId) throws InterruptedException;
 
 }

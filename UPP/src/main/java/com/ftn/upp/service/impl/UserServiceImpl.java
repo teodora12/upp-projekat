@@ -4,6 +4,7 @@ import com.ftn.upp.dto.RegisterDTO;
 import com.ftn.upp.model.User;
 import com.ftn.upp.repository.UserRepository;
 import com.ftn.upp.service.UserService;
+import org.camunda.bpm.engine.RuntimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.mail.MailException;
@@ -25,6 +26,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private Environment environment;
 
+    @Autowired
+    private RuntimeService runtimeService;
 /*
 
     private static final Argon2 ARGON2 = Argon2Factory.create();
@@ -97,15 +100,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void SendMailForActivation(User user) throws MailException, InterruptedException {
+    public void SendMailForActivation(User user, String processInstanceId) throws MailException, InterruptedException {
 
         System.out.println("Slanje emaila...");
 
         SimpleMailMessage mail = new SimpleMailMessage();
         mail.setTo(user.getEmail());
         mail.setFrom(environment.getProperty("spring.mail.username"));
-        mail.setSubject("Primer slanja emaila pomocu asinhronog Spring taska");
-        mail.setText("Pozdrav " + user.getName() + ",\n\nhvala što pratiš ISA.");
+        mail.setSubject("Email za aktivaciju naloga");
+        String url = "http://localhost:4200/activate/" + user.getEmail() + "/" + processInstanceId;
+        mail.setText("Pozdrav " + user.getName()+ "! Vas nalog bice aktiviran klikom na sledeci link i potvrdom aktivacije naloga: " + url + ".");
+
         javaMailSender.send(mail);
 
         System.out.println("Email poslat!");

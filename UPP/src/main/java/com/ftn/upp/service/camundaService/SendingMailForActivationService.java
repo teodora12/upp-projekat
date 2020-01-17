@@ -31,9 +31,11 @@ public class SendingMailForActivationService implements JavaDelegate {
             }
         }
 
+        String processInstanceId = delegateExecution.getProcessInstanceId();
+
         User user = this.userService.findUserByEmail(emailDTO.getFieldValue());
 
-        this.userService.SendMailForActivation(user);
+        this.userService.SendMailForActivation(user,processInstanceId);
 
 
     }

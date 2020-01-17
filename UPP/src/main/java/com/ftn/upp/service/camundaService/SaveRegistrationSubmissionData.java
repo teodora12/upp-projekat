@@ -23,16 +23,10 @@ public class SaveRegistrationSubmissionData implements JavaDelegate {
     private UserService userService;
 
     @Autowired
-    private IdentityService identityService;
-
-    @Autowired
     private AuthorityService authorityService;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
-
-    @Autowired
-    private UserRepository userRepository;
 
 
     @Override
