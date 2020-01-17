@@ -16,6 +16,7 @@ import {TokenInterceptorService} from './service/security/token-interceptor';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ScientificFieldsPageComponent } from './component/scientific-fields-page/scientific-fields-page.component';
 import { ActivationPageComponent } from './component/activation-page/activation-page.component';
+import { ReviewersPageComponent } from './component/reviewers-page/reviewers-page.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ActivationPageComponent } from './component/activation-page/activation-
     LoginPageComponent,
     NavbarComponent,
     ScientificFieldsPageComponent,
-    ActivationPageComponent
+    ActivationPageComponent,
+    ReviewersPageComponent
   ],
   imports: [
       BrowserModule,

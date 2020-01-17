@@ -32,6 +32,11 @@ export class UserService {
 
   }
 
+  submitReviewer(o, taskId): any {
+      return this.http.post('api/users/setReviewer/'.concat(taskId), o);
+
+  }
+
   getFormScientificFields(processInstanceId): any {
       return this.http.get('api/users/getScientificFieldForm/'.concat(processInstanceId));
   }
@@ -43,6 +48,10 @@ export class UserService {
   getActivationFormFields(processInstanceId): any {
       // ovde je ista putanja kao za naucne oblasti a u stvari ce se dobiti polja forme sa camunde
       return this.http.get('api/users/getScientificFieldForm/'.concat(processInstanceId));
+  }
+
+  getReviewerRequests(): any {
+      return this.http.get('api/users/admin/getRequestsForReviewers');
   }
 
   login(user): any {
