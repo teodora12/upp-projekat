@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="offset-3"></div>
+        <div class="col-md-6">
+            <form name="registerForm" #f="ngForm" (submit)="activateAccount(f.value,f)"  novalidate class="form-signin">
+
+                <h2 class="form-signin-heading">Activation</h2>
+
+                <div *ngFor="let field of formFields">
+                    <div class="form-group">
+
+                        <label> {{field['label']}} </label>
+
+                        <input type="text" class="form-control" name={{field.id}} ngModel *ngIf="field.type.name=='string'" />
+                        <input type="checkbox"  name={{field.id}} ngModel  *ngIf="field.type.name=='boolean'">
+                        <input type="number" class="form-control" name={{field.id}} ngModel  *ngIf="field.type.name=='long'">
+                        <select name="field.id" class="form-control" *ngIf="field.type.name=='enum'">
+                            <option *ngFor="let val of enumValues" value={{val}}>
+                                {{field.type.values[val]}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit"  class="btn btn-primary pull-right">
+                    <i class="fa fa-envelope-o"></i>
+                    <span> Activate</span>
+                </button>
+            </form>
+        </div>
+        <div class="offset-3"></div>
+    </div>
+</div>

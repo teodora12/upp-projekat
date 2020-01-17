@@ -17,7 +17,7 @@ export class ScientificFieldsPageComponent implements OnInit {
   private enumValues = [];
   numOfScientificFields: number;
   private processInstanceId;
-
+  counter = 0;
 
   constructor(private userService: UserService, private router: Router, private toastr: ToastrManager) {
     this.href = this.router.url;
@@ -51,6 +51,7 @@ export class ScientificFieldsPageComponent implements OnInit {
 
   submit(value, form) {
 
+    this.counter = this.counter + 1;
     const o = new Array();
     for (const property in value) {
       console.log(property);
@@ -62,7 +63,12 @@ export class ScientificFieldsPageComponent implements OnInit {
     this.userService.submitScientificFields(o, this.formFieldsDTO.taskId).subscribe(res => {
       console.log(res);
 
-      this.getNextTask();
+      if (this.counter < this.numOfScientificFields) {
+          this.getNextTask();
+      } else {
+          this.toastr.successToastr('Check on your email for activating account!', 'Success');
+          this.router.navigate(['/home']);
+      }
 
     }, err => {
       alert('greska kod submitovanja naucne oblasti!');
@@ -85,7 +91,7 @@ export class ScientificFieldsPageComponent implements OnInit {
       });
 
     }, err => {
-      alert('greska kod getovanja polja next taska!')
+      alert('greska kod getovanja polja next taska!');
     });
   }
 

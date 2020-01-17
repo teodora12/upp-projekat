@@ -15,6 +15,7 @@ import {CanActivateService} from './service/security/can-activate.service';
 import {TokenInterceptorService} from './service/security/token-interceptor';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ScientificFieldsPageComponent } from './component/scientific-fields-page/scientific-fields-page.component';
+import { ActivationPageComponent } from './component/activation-page/activation-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ScientificFieldsPageComponent } from './component/scientific-fields-pag
     RegistrationPageComponent,
     LoginPageComponent,
     NavbarComponent,
-    ScientificFieldsPageComponent
+    ScientificFieldsPageComponent,
+    ActivationPageComponent
   ],
   imports: [
       BrowserModule,

@@ -23,6 +23,10 @@ export class UserService {
  //     return this.http.post('api/users/register', user);
   }
 
+  activateAccount(o, taskId): any {
+      return this.http.post('api/users/activate/'.concat(taskId), o);
+  }
+
   submitTask(o, taskId): any {
       return this.http.post('api/users/register/'.concat(taskId), o);
 
@@ -36,6 +40,10 @@ export class UserService {
       return this.http.post('api/users/postScientificField/'.concat(taskId), o);
   }
 
+  getActivationFormFields(processInstanceId): any {
+      // ovde je ista putanja kao za naucne oblasti a u stvari ce se dobiti polja forme sa camunde
+      return this.http.get('api/users/getScientificFieldForm/'.concat(processInstanceId));
+  }
 
   login(user): any {
       return this.http.post('api/auth/login', user, {observe: 'response'}).pipe(map(response => response));
