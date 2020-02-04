@@ -23,7 +23,7 @@
             <bpmn:incoming>SequenceFlow_0u62nda</bpmn:incoming>
         </bpmn:endEvent>
         <bpmn:sequenceFlow id="SequenceFlow_1m1qz9g" sourceRef="selectJournalTask" targetRef="ReturnOpenAccessServiceTask" />
-        <bpmn:serviceTask id="ReturnOpenAccessServiceTask" name="ReturnOpenAccessService" camunda:expression="${true}">
+        <bpmn:serviceTask id="ReturnOpenAccessServiceTask" name="ReturnOpenAccessService" camunda:class="com.ftn.upp.service.camundaService.ReturnOpenAccessService">
             <bpmn:incoming>SequenceFlow_1m1qz9g</bpmn:incoming>
             <bpmn:outgoing>SequenceFlow_0xb8uz2</bpmn:outgoing>
         </bpmn:serviceTask>
@@ -34,10 +34,10 @@
         </bpmn:exclusiveGateway>
         <bpmn:sequenceFlow id="SequenceFlow_0xb8uz2" sourceRef="ReturnOpenAccessServiceTask" targetRef="ExclusiveGateway_0q5a6z1" />
         <bpmn:sequenceFlow id="isNotOpenAccess" name="is not open access" sourceRef="ExclusiveGateway_0q5a6z1" targetRef="ExclusiveGateway_03om0r9">
-            <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${true}</bpmn:conditionExpression>
+            <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${isOpenAccess == false}</bpmn:conditionExpression>
         </bpmn:sequenceFlow>
         <bpmn:sequenceFlow id="isOpenAccess" name="is open access" sourceRef="ExclusiveGateway_0q5a6z1" targetRef="returnActiveDuesServiceTask">
-            <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${false}</bpmn:conditionExpression>
+            <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${isOpenAccess == true}</bpmn:conditionExpression>
         </bpmn:sequenceFlow>
         <bpmn:serviceTask id="returnActiveDuesServiceTask" name="ReturnActiveDuesService" camunda:expression="${true}">
             <bpmn:incoming>isOpenAccess</bpmn:incoming>

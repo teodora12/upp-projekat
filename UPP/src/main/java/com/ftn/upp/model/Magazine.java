@@ -35,8 +35,19 @@ public class Magazine implements Serializable {
     @Column
     private boolean isActive;
 
+    @Column
+    private boolean isOpenAccess;
+
 
     public Magazine() {
+    }
+
+    public boolean isOpenAccess() {
+        return isOpenAccess;
+    }
+
+    public void setOpenAccess(boolean openAccess) {
+        isOpenAccess = openAccess;
     }
 
     public Long getId() {

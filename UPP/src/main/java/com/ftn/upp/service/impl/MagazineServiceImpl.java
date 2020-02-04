@@ -18,4 +18,19 @@ public class MagazineServiceImpl implements MagazineService {
     public List<Magazine> findAll() {
         return this.magazineRepository.findAll();
     }
+
+    @Override
+    public boolean isOpenAccess(Magazine magazine) {
+        Magazine magazine1 = this.magazineRepository.findMagazineByTitle(magazine.getTitle());
+        boolean isOpenAccess = false;
+        if(magazine1 != null){
+            isOpenAccess = magazine1.isOpenAccess();
+        }
+        return isOpenAccess;
+    }
+
+    @Override
+    public Magazine findMagazineByTitle(String title) {
+        return this.magazineRepository.findMagazineByTitle(title);
+    }
 }

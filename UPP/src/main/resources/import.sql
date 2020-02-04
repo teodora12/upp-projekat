@@ -31,8 +31,9 @@ insert into user_authority(user_id, authority_id) VALUES (4,3);
 insert into user_authority(user_id, authority_id) VALUES (5,3);
 
 
-insert into magazine (id, date, is_active, title, way_of_payment) values (1, null ,true,'MAGAZIN','');
-insert into magazine (id, date, is_active, title, way_of_payment) values (2, null ,true,'MAGAZIN2','banka');
+insert into magazine (id, date, is_active, title, way_of_payment, is_open_access) values (1, null ,true,'MAGAZIN','', false );
+insert into magazine (id, date, is_active, title, way_of_payment, is_open_access) values (2, null ,true,'MAGAZIN2','banka', false );
+insert into magazine (id, date, is_active, title, way_of_payment, is_open_access) values (3, null ,true,'casopis','banka', false );
 
 
 insert into magazine_scientific_fields (magazine_id, scientific_field_id) values (1,1);

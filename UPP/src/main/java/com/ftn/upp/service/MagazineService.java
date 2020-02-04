@@ -9,5 +9,7 @@ import java.util.List;
 public interface MagazineService {
 
     List<Magazine> findAll();
+    boolean isOpenAccess(Magazine magazine);
+    Magazine findMagazineByTitle(String title);
 
 }

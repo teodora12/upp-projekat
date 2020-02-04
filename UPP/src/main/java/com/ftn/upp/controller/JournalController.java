@@ -1,9 +1,11 @@
 package com.ftn.upp.controller;
 
 import com.ftn.upp.dto.FormFieldsDTO;
+import com.ftn.upp.dto.FormSubmissionDTO;
 import com.ftn.upp.dto.MagazineDTO;
 import com.ftn.upp.dto.NewJournalDTO;
 import com.ftn.upp.model.Magazine;
+import com.ftn.upp.service.MagazineService;
 import org.camunda.bpm.engine.FormService;
 import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.TaskService;
@@ -18,6 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -32,6 +35,9 @@ public class JournalController {
 
     @Autowired
     private FormService formService;
+
+    @Autowired
+    private MagazineService magazineService;
 
     @GetMapping(value = "/startProcess")
     public ResponseEntity<FormFieldsDTO> getFormFields(){
@@ -59,6 +65,22 @@ public class JournalController {
         return new ResponseEntity(magazineDTOS, HttpStatus.OK);
     }
 
+    @PostMapping(value = "/submitChoosenMagazine/{taskId}")
+    public ResponseEntity submitChoosenMagazine(@RequestBody List<FormSubmissionDTO> dto, @PathVariable String taskId){
+        HashMap<String , Object> map = this.mapListToDto(dto);
+
+
+
+        Task task = this.taskService.createTaskQuery().taskId(taskId).singleResult();
+        String processInstanceId = task.getProcessInstanceId();
+        runtimeService.setVariable(processInstanceId, "choosenMagazine", dto);
+        formService.submitTaskForm(taskId,map);
+
+        boolean isOpenAccess = (boolean) this.runtimeService.getVariable(processInstanceId,"isOpenAccess");
+
+        return new ResponseEntity(isOpenAccess,HttpStatus.OK);
+
+    }
 
     @GetMapping(value = "/getFormFields")
     public ResponseEntity<NewJournalDTO> startCreatingJournalProcess(){
@@ -71,12 +93,14 @@ public class JournalController {
         return new ResponseEntity<>(new NewJournalDTO(task.getId(),processInstance.getId(),fields), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/post")
-    public ResponseEntity<NewJournalDTO> blabla(){
+    private HashMap<String, Object> mapListToDto(List<FormSubmissionDTO> list) {
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        for(FormSubmissionDTO temp : list){
+            map.put(temp.getFieldId(), temp.getFieldValue());
+        }
 
-        System.out.println("juishaiuhasi");
-
-        return new ResponseEntity<>( HttpStatus.OK);
+        return map;
     }
+
 
 }
