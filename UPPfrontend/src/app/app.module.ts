@@ -18,6 +18,7 @@ import { ScientificFieldsPageComponent } from './component/scientific-fields-pag
 import { ActivationPageComponent } from './component/activation-page/activation-page.component';
 import { ReviewersPageComponent } from './component/reviewers-page/reviewers-page.component';
 import { ChooseMagazinePageComponent } from './component/choose-magazine-page/choose-magazine-page.component';
+import { WorkDataPageComponent } from './component/work-data-page/work-data-page.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ChooseMagazinePageComponent } from './component/choose-magazine-page/ch
     ScientificFieldsPageComponent,
     ActivationPageComponent,
     ReviewersPageComponent,
-    ChooseMagazinePageComponent
+    ChooseMagazinePageComponent,
+    WorkDataPageComponent
   ],
   imports: [
       BrowserModule,

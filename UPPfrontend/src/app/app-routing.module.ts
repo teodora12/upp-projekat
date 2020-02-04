@@ -9,7 +9,8 @@ import {JournalNewComponent} from './component/journal-new/journal-new.component
 import {ScientificFieldsPageComponent} from './component/scientific-fields-page/scientific-fields-page.component';
 import {ActivationPageComponent} from './component/activation-page/activation-page.component';
 import {ReviewersPageComponent} from './component/reviewers-page/reviewers-page.component';
-import {ChooseMagazinePageComponent} from "./component/choose-magazine-page/choose-magazine-page.component";
+import {ChooseMagazinePageComponent} from './component/choose-magazine-page/choose-magazine-page.component';
+import {WorkDataPageComponent} from './component/work-data-page/work-data-page.component';
 
 
 const appRoutes: Routes = [
@@ -21,7 +22,8 @@ const appRoutes: Routes = [
     { path: 'scientificFields/:numOfScientificFields/:processInstanceId', component: ScientificFieldsPageComponent},
     { path: 'activate/:email/:processInstanceId', component: ActivationPageComponent},
     { path: 'reviewers', component: ReviewersPageComponent},
-    { path: 'chooseMagazines', component: ChooseMagazinePageComponent}
+    { path: 'chooseMagazines', component: ChooseMagazinePageComponent},
+    { path: 'workData/:processInstanceId', component: WorkDataPageComponent}
 ];
 
 @NgModule({

@@ -16,4 +16,8 @@ export class MagazineService {
     return this.http.get('api/magazines/getMagazines/'.concat(processInstanceId));
   }
 
+  submitForm(magazine, taskId): any {
+    return this.http.post('api/magazines/submitChoosenMagazine/'.concat(taskId), magazine);
+  }
+
 }

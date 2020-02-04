@@ -18,6 +18,7 @@ export class ChooseMagazinePageComponent implements OnInit {
   private processInstanceId;
   magazines: any;
   choosenMagazine: any;
+  isOpenAccess: boolean;
 
   constructor( private router: Router, private toastr: ToastrManager, private magazineService: MagazineService) { }
 
@@ -57,7 +58,12 @@ export class ChooseMagazinePageComponent implements OnInit {
 
       this.magazines.forEach( (field) => {
         this.enumValues.push(field.title);
+        console.log(field.title);
+        console.log(field.id);
+
+          //      this.enumValues = Object.keys(field['title']);
         console.log(this.enumValues);
+
       } );
 
     });
@@ -67,6 +73,39 @@ export class ChooseMagazinePageComponent implements OnInit {
 
     console.log(this.choosenMagazine);
 
+    const o = new Array();
+    for (const property in value) {
+          console.log(property);
+          console.log(value[property]);
+          o.push({fieldId : property, fieldValue : value[property]});
+      }
+
+    console.log(o);
+    this.submit(o, this.formFieldsDTO.taskId);
+
+
+      // this.magazines.forEach((field) => {
+    //   if (field.title.equals(this.choosenMagazine)) {
+    //     this.submit(field, this.formFieldsDTO.taskId);
+    //   }
+    // });
+
+  }
+
+  submit(magazine, taskId) {
+    this.magazineService.submitForm(magazine, taskId).subscribe(res => {
+      this.isOpenAccess = res;
+      console.log(res);
+      this.toastr.successToastr('Success!');
+
+      if (this.isOpenAccess === false) {
+        this.router.navigate(['/workData', this.processInstanceId]);
+      }
+
+    }, err => {
+      alert('greska!!!!!!!!!!');
+
+    });
   }
 
 
