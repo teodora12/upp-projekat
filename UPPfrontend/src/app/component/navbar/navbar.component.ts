@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../service/user.service";
 import {Router} from "@angular/router";
+import {MagazineService} from "../../service/magazine.service";
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +13,7 @@ export class NavbarComponent implements OnInit {
   userRole: any;
   user: any;
 
-  constructor( private router: Router, private userService: UserService) { }
+  constructor( private router: Router, private userService: UserService, private magazineService: MagazineService) { }
 
   ngOnInit() {
  //   this.userRole = this.userService.getLoggedUserType();
@@ -36,6 +37,7 @@ export class NavbarComponent implements OnInit {
       });
     }
   }
+
 
   logout() {
     localStorage.clear();

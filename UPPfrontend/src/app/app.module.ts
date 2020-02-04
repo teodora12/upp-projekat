@@ -17,6 +17,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ScientificFieldsPageComponent } from './component/scientific-fields-page/scientific-fields-page.component';
 import { ActivationPageComponent } from './component/activation-page/activation-page.component';
 import { ReviewersPageComponent } from './component/reviewers-page/reviewers-page.component';
+import { ChooseMagazinePageComponent } from './component/choose-magazine-page/choose-magazine-page.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ReviewersPageComponent } from './component/reviewers-page/reviewers-pag
     NavbarComponent,
     ScientificFieldsPageComponent,
     ActivationPageComponent,
-    ReviewersPageComponent
+    ReviewersPageComponent,
+    ChooseMagazinePageComponent
   ],
   imports: [
       BrowserModule,
