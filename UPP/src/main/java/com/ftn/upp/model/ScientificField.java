@@ -1,10 +1,11 @@
 package com.ftn.upp.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table
-public class ScientificField {
+public class ScientificField implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
