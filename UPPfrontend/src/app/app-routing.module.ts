@@ -23,7 +23,7 @@ const appRoutes: Routes = [
     { path: 'activate/:email/:processInstanceId', component: ActivationPageComponent},
     { path: 'reviewers', component: ReviewersPageComponent},
     { path: 'chooseMagazines', component: ChooseMagazinePageComponent},
-    { path: 'workData/:processInstanceId', component: WorkDataPageComponent}
+    { path: 'workData/:processInstanceId/:magazineTitle', component: WorkDataPageComponent}
 ];
 
 @NgModule({

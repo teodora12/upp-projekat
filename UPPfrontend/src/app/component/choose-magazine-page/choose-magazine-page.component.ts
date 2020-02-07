@@ -58,8 +58,8 @@ export class ChooseMagazinePageComponent implements OnInit {
 
       this.magazines.forEach( (field) => {
         this.enumValues.push(field.title);
-        console.log(field.title);
-        console.log(field.id);
+  //      console.log(field.title);
+//        console.log(field.id);
 
           //      this.enumValues = Object.keys(field['title']);
         console.log(this.enumValues);
@@ -75,8 +75,8 @@ export class ChooseMagazinePageComponent implements OnInit {
 
     const o = new Array();
     for (const property in value) {
-          console.log(property);
-          console.log(value[property]);
+   //       console.log(property);
+     //     console.log(value[property]);
           o.push({fieldId : property, fieldValue : value[property]});
       }
 
@@ -97,9 +97,10 @@ export class ChooseMagazinePageComponent implements OnInit {
       this.isOpenAccess = res;
       console.log(res);
       this.toastr.successToastr('Success!');
+      console.log(magazine[0].fieldValue);
 
       if (this.isOpenAccess === false) {
-        this.router.navigate(['/workData', this.processInstanceId]);
+        this.router.navigate(['/workData', this.processInstanceId, magazine[0].fieldValue]);
       }
 
     }, err => {

@@ -20,4 +20,12 @@ export class MagazineService {
     return this.http.post('api/magazines/submitChoosenMagazine/'.concat(taskId), magazine);
   }
 
+  getFormFields(processInstanceId): any {
+    return this.http.get('api/magazines/getFormFields/'.concat(processInstanceId));
+  }
+
+  getScientificFieldsForMagazine(magazineTitle): any {
+    return this.http.get('api/magazines/getScientificFieldsForMagazine/'.concat(magazineTitle));
+  }
+
 }
