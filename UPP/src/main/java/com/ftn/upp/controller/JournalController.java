@@ -1,10 +1,8 @@
 package com.ftn.upp.controller;
 
-import com.ftn.upp.dto.FormFieldsDTO;
-import com.ftn.upp.dto.FormSubmissionDTO;
-import com.ftn.upp.dto.MagazineDTO;
-import com.ftn.upp.dto.NewJournalDTO;
+import com.ftn.upp.dto.*;
 import com.ftn.upp.model.Magazine;
+import com.ftn.upp.model.ScientificField;
 import com.ftn.upp.service.MagazineService;
 import org.camunda.bpm.engine.FormService;
 import org.camunda.bpm.engine.RuntimeService;
@@ -22,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 @RequestMapping(value = "/api/magazines")
@@ -49,6 +48,28 @@ public class JournalController {
         List<FormField> fields = taskFormData.getFormFields();
 
         return new ResponseEntity(new FormFieldsDTO(task.getId(),processInstance.getId(),fields), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/getFormFields/{processInstanceId}")
+    public ResponseEntity<FormFieldsDTO> getFormFields(@PathVariable String processInstanceId){
+        Task task = taskService.createTaskQuery().processInstanceId(processInstanceId).list().get(0);
+        TaskFormData taskFormData = formService.getTaskFormData(task.getId());
+        List<FormField> fields = taskFormData.getFormFields();
+
+        return new ResponseEntity(new FormFieldsDTO(task.getId(),processInstanceId,fields), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/getScientificFieldsForMagazine/{magazineTitle}")
+    public ResponseEntity<List<ScientificFieldDTO>> getScientificFieldsForMagazine(@PathVariable String magazineTitle){
+
+        Magazine magazine = this.magazineService.findMagazineByTitle(magazineTitle);
+        List<ScientificFieldDTO> scientificFields = new ArrayList<>();
+        for(ScientificField scientificField: magazine.getScientificFields()){
+            ScientificFieldDTO scientificFieldDTO = new ScientificFieldDTO(scientificField);
+            scientificFields.add(scientificFieldDTO);
+        }
+
+        return new ResponseEntity<>(scientificFields,HttpStatus.OK);
     }
 
     @GetMapping(value = "/getMagazines/{processInstanceId}")

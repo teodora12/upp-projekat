@@ -1,13 +1,37 @@
 package com.ftn.upp.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 public class MagazineDTO {
 
     private Long id;
     private String title;
+    private List<ScientificFieldDTO> scientificFields;
+
+    public MagazineDTO(){
+        this.scientificFields = new ArrayList<>();
+    }
 
     public MagazineDTO(Long id, String title) {
         this.id = id;
         this.title = title;
+    }
+
+
+    public MagazineDTO(Long id, String title, List<ScientificFieldDTO> scientificFields) {
+        this.id = id;
+        this.title = title;
+        this.scientificFields = scientificFields;
+    }
+
+    public List<ScientificFieldDTO> getScientificFields() {
+        return scientificFields;
+    }
+
+    public void setScientificFields(List<ScientificFieldDTO> scientificFields) {
+        this.scientificFields = scientificFields;
     }
 
     public Long getId() {

@@ -85,7 +85,7 @@
                     <camunda:formField id="abstract" label="Abstract:" type="string" />
                     <camunda:formField id="pdf" label="PDF:" type="string" />
                     <camunda:formField id="keyTerms" label="Key terms:" type="string" />
-                    <camunda:formField id="scientificField" label="Scientific field:" type="string" />
+                    <camunda:formField id="scientificField" label="Scientific field:" type="enum" />
                 </camunda:formData>
             </bpmn:extensionElements>
             <bpmn:incoming>SequenceFlow_1n0wz8l</bpmn:incoming>
