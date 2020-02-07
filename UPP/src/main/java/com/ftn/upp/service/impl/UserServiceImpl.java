@@ -1,8 +1,10 @@
 package com.ftn.upp.service.impl;
 
 import com.ftn.upp.dto.RegisterDTO;
+import com.ftn.upp.model.Authority;
 import com.ftn.upp.model.User;
 import com.ftn.upp.repository.UserRepository;
+import com.ftn.upp.service.AuthorityService;
 import com.ftn.upp.service.UserService;
 import org.camunda.bpm.engine.RuntimeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private RuntimeService runtimeService;
+
+    @Autowired
+    private AuthorityService authorityService;
 /*
 
     private static final Argon2 ARGON2 = Argon2Factory.create();
@@ -43,6 +48,13 @@ public class UserServiceImpl implements UserService {
         return hash;
     }
 */
+
+    @Override
+    public User findUserByAuthority(String authority) {
+        Authority authority1 = this.authorityService.findAuthorityByName(authority);
+        User user = this.userRepository.findUserByAuthorities(authority1);
+        return user;
+    }
 
     @Override
     public User register(RegisterDTO registerDTO) {

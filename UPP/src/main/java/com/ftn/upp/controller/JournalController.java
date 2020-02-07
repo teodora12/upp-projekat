@@ -91,7 +91,6 @@ public class JournalController {
         HashMap<String , Object> map = this.mapListToDto(dto);
 
 
-
         Task task = this.taskService.createTaskQuery().taskId(taskId).singleResult();
         String processInstanceId = task.getProcessInstanceId();
         runtimeService.setVariable(processInstanceId, "choosenMagazine", dto);
@@ -100,6 +99,19 @@ public class JournalController {
         boolean isOpenAccess = (boolean) this.runtimeService.getVariable(processInstanceId,"isOpenAccess");
 
         return new ResponseEntity(isOpenAccess,HttpStatus.OK);
+
+    }
+
+    @PostMapping(value = "/submitWorkData/{taskId}")
+    public ResponseEntity submitWorkData(@RequestBody List<FormSubmissionDTO> dto, @PathVariable String taskId) {
+        HashMap<String, Object> map = this.mapListToDto(dto);
+
+        Task task = this.taskService.createTaskQuery().taskId(taskId).singleResult();
+        String processInstanceId = task.getProcessInstanceId();
+        runtimeService.setVariable(processInstanceId,"workData",dto);
+        formService.submitTaskForm(taskId,map);
+
+        return ResponseEntity.ok().build();
 
     }
 

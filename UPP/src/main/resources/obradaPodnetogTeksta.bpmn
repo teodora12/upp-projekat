@@ -91,12 +91,12 @@
             <bpmn:incoming>SequenceFlow_1n0wz8l</bpmn:incoming>
             <bpmn:outgoing>SequenceFlow_0padtb7</bpmn:outgoing>
         </bpmn:userTask>
-        <bpmn:serviceTask id="saveWorkDataServiceTask" name="SaveWorkDataService" camunda:expression="${true}">
+        <bpmn:serviceTask id="saveWorkDataServiceTask" name="SaveWorkDataService" camunda:class="com.ftn.upp.service.camundaService.SaveWorkDataService">
             <bpmn:incoming>SequenceFlow_0padtb7</bpmn:incoming>
             <bpmn:outgoing>SequenceFlow_04xbxhj</bpmn:outgoing>
         </bpmn:serviceTask>
         <bpmn:sequenceFlow id="SequenceFlow_04xbxhj" sourceRef="saveWorkDataServiceTask" targetRef="chooseMainRedactorServiceTask" />
-        <bpmn:serviceTask id="chooseMainRedactorServiceTask" name="ChooseMainRedactorService" camunda:expression="${true}">
+        <bpmn:serviceTask id="chooseMainRedactorServiceTask" name="ChooseMainRedactorService" camunda:class="com.ftn.upp.service.camundaService.ChooseMainRedactorService">
             <bpmn:incoming>SequenceFlow_04xbxhj</bpmn:incoming>
             <bpmn:outgoing>SequenceFlow_0v2bof6</bpmn:outgoing>
         </bpmn:serviceTask>
@@ -654,7 +654,7 @@
             <bpmndi:BPMNShape id="ExclusiveGateway_1iola23_di" bpmnElement="ExclusiveGateway_1iola23" isMarkerVisible="true">
                 <dc:Bounds x="1035" y="505" width="50" height="50" />
                 <bpmndi:BPMNLabel>
-                    <dc:Bounds x="1035" y="565" width="50" height="14" />
+                    <dc:Bounds x="1035" y="563" width="50" height="14" />
                 </bpmndi:BPMNLabel>
             </bpmndi:BPMNShape>
             <bpmndi:BPMNEdge id="SequenceFlow_0b1izw4_di" bpmnElement="SequenceFlow_0b1izw4">

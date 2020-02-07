@@ -11,6 +11,8 @@ import java.util.List;
 @Service
 public class MagazineServiceImpl implements MagazineService {
 
+
+
     @Autowired
     private MagazineRepository magazineRepository;
 
@@ -27,6 +29,11 @@ public class MagazineServiceImpl implements MagazineService {
             isOpenAccess = magazine1.isOpenAccess();
         }
         return isOpenAccess;
+    }
+
+    @Override
+    public void saveMagazine(Magazine magazine) {
+        this.magazineRepository.save(magazine);
     }
 
     @Override

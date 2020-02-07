@@ -73,6 +73,8 @@ public class User implements Serializable,UserDetails{
     private List<ScientificField> scientificFields;
 
     public User() {
+        this.scientificFields = new ArrayList<>();
+        this.authorities = new ArrayList<>();
     }
 
     public User(List<FormSubmissionDTO> registrationData){

@@ -3,6 +3,7 @@ package com.ftn.upp.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Table
@@ -38,8 +39,22 @@ public class Magazine implements Serializable {
     @Column
     private boolean isOpenAccess;
 
+    @OneToMany
+    private Set<Work> works;
+
 
     public Magazine() {
+        this.works = new HashSet<>();
+        this.scientificFields = new HashSet<>();
+        this.users = new HashSet<>();
+    }
+
+    public Set<Work> getWorks() {
+        return works;
+    }
+
+    public void setWorks(Set<Work> works) {
+        this.works = works;
     }
 
     public boolean isOpenAccess() {
