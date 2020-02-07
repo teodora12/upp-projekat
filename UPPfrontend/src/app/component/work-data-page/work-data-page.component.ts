@@ -77,6 +77,28 @@ export class WorkDataPageComponent implements OnInit {
 
     console.log(this.choosenScientificField);
 
+    const o = new Array();
+    for (const property in value) {
+      //       console.log(property);
+      //     console.log(value[property]);
+      o.push({fieldId : property, fieldValue : value[property]});
+    }
+
+    console.log(o);
+
+    this.submitWorkData(o, this.formFieldsDTO.taskId);
+
+  }
+
+  submitWorkData(workData, taskId) {
+    this.magazineService.submitWorkData(workData, taskId).subscribe( res => {
+          console.log(res);
+          this.toastr.successToastr('Success!');
+
+        }, err => {
+          alert('greska submit work data!!!!!!');
+        }
+    );
   }
 
 }

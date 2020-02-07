@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -28,4 +28,7 @@ export class MagazineService {
     return this.http.get('api/magazines/getScientificFieldsForMagazine/'.concat(magazineTitle));
   }
 
+  submitWorkData(workData, taskId): any {
+    return this.http.post('api/magazines/submitWorkData/'.concat(taskId), workData);
+  }
 }
