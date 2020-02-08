@@ -19,16 +19,26 @@ export class ChooseMagazinePageComponent implements OnInit {
   magazines: any;
   choosenMagazine: any;
   isOpenAccess: boolean;
+  userCredentials: any;
+  membership: boolean;
 
-  constructor( private router: Router, private toastr: ToastrManager, private magazineService: MagazineService) { }
+  constructor( private router: Router, private toastr: ToastrManager, private magazineService: MagazineService) {
+    this.userCredentials = {username: ''};
+  }
 
   ngOnInit() {
 
-    this.startProcess();
+    this.userCredentials = JSON.parse(localStorage.getItem('loggedUser'));
+    console.log(this.userCredentials);
+    console.log(this.userCredentials.sub + 'AAAAAAAAAAAAAAAAAAAAAAAAAAA');
+
+    this.startProcess(this.userCredentials.sub);
+
+
   }
 
-  startProcess() {
-    this.magazineService.startProcess().subscribe(formFieldsDTO => {
+  startProcess(username) {
+    this.magazineService.startProcess(username).subscribe(formFieldsDTO => {
       this.formFieldsDTO = formFieldsDTO;
       this.formFields = formFieldsDTO.formFields;
       this.processInstance = formFieldsDTO.processInstanceId;
@@ -46,9 +56,10 @@ export class ChooseMagazinePageComponent implements OnInit {
 
       this.getMagazines(this.processInstanceId);
 
+      this.isActiveMembership(this.processInstanceId);
+      console.log(this.membership);
 
     });
-
 
   }
 
@@ -101,13 +112,31 @@ export class ChooseMagazinePageComponent implements OnInit {
 
       if (this.isOpenAccess === false) {
         this.router.navigate(['/workData', this.processInstanceId, magazine[0].fieldValue]);
+      } else if (this.isOpenAccess === true) {
+
+        if (this.membership === false) {
+            this.router.navigate(['/payment', this.processInstanceId, magazine[0].fieldValue]);
+        } else if (this.membership === true) {
+          this.router.navigate(['/workData', this.processInstanceId, magazine[0].fieldValue]);
+        }
       }
 
     }, err => {
-      alert('greska!!!!!!!!!!');
+      alert('greska choose magazine!!!!!!!!!!');
 
     });
   }
 
+  isActiveMembership(processInstanceId) {
+      this.magazineService.isActiveMembership(processInstanceId).subscribe(res => {
+        this.membership = res;
+        console.log('MEMBERSHIP' + this.membership);
+
+      }, err => {
+
+        alert('GRESKA IS ACTIVE MEMBERSHIP!!!!!!!!!');
+
+      });
+  }
 
 }

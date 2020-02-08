@@ -11,6 +11,7 @@ import {ActivationPageComponent} from './component/activation-page/activation-pa
 import {ReviewersPageComponent} from './component/reviewers-page/reviewers-page.component';
 import {ChooseMagazinePageComponent} from './component/choose-magazine-page/choose-magazine-page.component';
 import {WorkDataPageComponent} from './component/work-data-page/work-data-page.component';
+import {PaymentPageComponent} from './component/payment-page/payment-page.component';
 
 
 const appRoutes: Routes = [
@@ -23,7 +24,8 @@ const appRoutes: Routes = [
     { path: 'activate/:email/:processInstanceId', component: ActivationPageComponent},
     { path: 'reviewers', component: ReviewersPageComponent},
     { path: 'chooseMagazines', component: ChooseMagazinePageComponent},
-    { path: 'workData/:processInstanceId/:magazineTitle', component: WorkDataPageComponent}
+    { path: 'workData/:processInstanceId/:magazineTitle', component: WorkDataPageComponent},
+    { path: 'payment/:processInstanceId/:magazineTitle', component: PaymentPageComponent}
 ];
 
 @NgModule({

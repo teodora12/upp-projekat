@@ -8,8 +8,8 @@ export class MagazineService {
 
   constructor(private http: HttpClient) { }
 
-  startProcess(): any {
-    return this.http.get('api/magazines/startProcess');
+  startProcess(username): any {
+    return this.http.get('api/magazines/startProcess/'.concat(username));
   }
 
   getMagazines(processInstanceId): any {
@@ -31,4 +31,17 @@ export class MagazineService {
   submitWorkData(workData, taskId): any {
     return this.http.post('api/magazines/submitWorkData/'.concat(taskId), workData);
   }
+
+  getFormFieldsPayment(processInstanceId): any {
+    return this.http.get('api/magazines/getFormFieldsPayment/'.concat(processInstanceId));
+  }
+
+  submitPayment(taskId, o): any {
+    return this.http.post('api/magazines/submitPayment/'.concat(taskId), o);
+  }
+
+  isActiveMembership(processInstanceId): any {
+      return this.http.get('api/magazines/isActiveDues/'.concat(processInstanceId));
+  }
+
 }

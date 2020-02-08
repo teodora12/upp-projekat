@@ -19,6 +19,7 @@ import { ActivationPageComponent } from './component/activation-page/activation-
 import { ReviewersPageComponent } from './component/reviewers-page/reviewers-page.component';
 import { ChooseMagazinePageComponent } from './component/choose-magazine-page/choose-magazine-page.component';
 import { WorkDataPageComponent } from './component/work-data-page/work-data-page.component';
+import { PaymentPageComponent } from './component/payment-page/payment-page.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { WorkDataPageComponent } from './component/work-data-page/work-data-page
     ActivationPageComponent,
     ReviewersPageComponent,
     ChooseMagazinePageComponent,
-    WorkDataPageComponent
+    WorkDataPageComponent,
+    PaymentPageComponent
   ],
   imports: [
       BrowserModule,
