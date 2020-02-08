@@ -2,31 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="362c3c6a-76ab-4f8d-9399-c51649cb5909" name="Default Changelist" comment="submit forme za work data, cuvanje rada i pronalazenje glavnog urednika za izabrani casopis preko camundinih servisa">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/repository/DuesRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/DuesService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/CheckingPaymentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/ReturnActiveDuesService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/impl/DuesServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/payment-page/payment-page.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/payment-page/payment-page.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/payment-page/payment-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffe9b7d6-fd86-4a3b-ba52-b340b815a6ce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffe9b7d6-fd86-4a3b-ba52-b340b815a6ce.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ftn/upp/controller/JournalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/controller/JournalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftn/upp/model/Dues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/model/Dues.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftn/upp/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/import.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/obradaPodnetogTeksta.bpmn" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/obradaPodnetogTeksta.bpmn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ftn/upp/controller/JournalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/controller/JournalController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ftn/upp/model/Dues.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/model/Dues.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ftn/upp/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/import.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/obradaPodnetogTeksta.bpmn" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/obradaPodnetogTeksta.bpmn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/component/choose-magazine-page/choose-magazine-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/choose-magazine-page/choose-magazine-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/service/magazine.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/service/magazine.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +144,7 @@
       <workItem from="1581120772882" duration="5384000" />
       <workItem from="1581126414301" duration="1140000" />
       <workItem from="1581155893280" duration="4319000" />
-      <workItem from="1581183645224" duration="3095000" />
+      <workItem from="1581183645224" duration="3350000" />
     </task>
     <task id="LOCAL-00001" summary="first commit back">
       <created>1578240576152</created>
@@ -267,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581110934940</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="uplata clanarine u slucaju da casopis nije open access">
+      <created>1581187237091</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1581187237091</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,7 +272,8 @@
     <MESSAGE value="submitovanje izabranog magazina, provera da li taj magazin open access" />
     <MESSAGE value="pokupljena forma za popunjavanje podataka rada sa camunde, prepravljen scientific field da bude enum a ne string, izlistani scientific fieldovi za izabrani magazin" />
     <MESSAGE value="submit forme za work data, cuvanje rada i pronalazenje glavnog urednika za izabrani casopis preko camundinih servisa" />
-    <option name="LAST_COMMIT_MESSAGE" value="submit forme za work data, cuvanje rada i pronalazenje glavnog urednika za izabrani casopis preko camundinih servisa" />
+    <MESSAGE value="uplata clanarine u slucaju da casopis nije open access" />
+    <option name="LAST_COMMIT_MESSAGE" value="uplata clanarine u slucaju da casopis nije open access" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="23" key="#Assign_Data_Sources" timestamp="1579032998218">
@@ -303,10 +288,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="81" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1581122772658" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1581110926184">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1581187226519">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1581110926184" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1581187226519" />
     <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1579214048393">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

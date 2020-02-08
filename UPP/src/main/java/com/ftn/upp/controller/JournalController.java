@@ -166,6 +166,7 @@ public class JournalController {
 
     }
 
+
     @GetMapping(value = "/getFormFields")
     public ResponseEntity<NewJournalDTO> startCreatingJournalProcess(){
 
