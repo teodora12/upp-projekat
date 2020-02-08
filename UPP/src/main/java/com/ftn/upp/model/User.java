@@ -72,6 +72,9 @@ public class User implements Serializable,UserDetails{
             inverseJoinColumns = @JoinColumn(name = "scientificField_id", referencedColumnName = "id"))
     private List<ScientificField> scientificFields;
 
+    @OneToOne
+    private Dues dues;
+
     public User() {
         this.scientificFields = new ArrayList<>();
         this.authorities = new ArrayList<>();
@@ -110,6 +113,14 @@ public class User implements Serializable,UserDetails{
 
         this.enabled = false;
 
+    }
+
+    public Dues getDues() {
+        return dues;
+    }
+
+    public void setDues(Dues dues) {
+        this.dues = dues;
     }
 
     public List<ScientificField> getScientificFields() {

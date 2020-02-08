@@ -39,7 +39,7 @@
         <bpmn:sequenceFlow id="isOpenAccess" name="is open access" sourceRef="ExclusiveGateway_0q5a6z1" targetRef="returnActiveDuesServiceTask">
             <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${isOpenAccess == true}</bpmn:conditionExpression>
         </bpmn:sequenceFlow>
-        <bpmn:serviceTask id="returnActiveDuesServiceTask" name="ReturnActiveDuesService" camunda:expression="${true}">
+        <bpmn:serviceTask id="returnActiveDuesServiceTask" name="ReturnActiveDuesService" camunda:class="com.ftn.upp.service.camundaService.ReturnActiveDuesService">
             <bpmn:incoming>isOpenAccess</bpmn:incoming>
             <bpmn:outgoing>SequenceFlow_0b1izw4</bpmn:outgoing>
         </bpmn:serviceTask>
@@ -50,7 +50,7 @@
         </bpmn:exclusiveGateway>
         <bpmn:sequenceFlow id="SequenceFlow_0b1izw4" sourceRef="returnActiveDuesServiceTask" targetRef="ExclusiveGateway_1iola23" />
         <bpmn:sequenceFlow id="isActiveDue" name="is active " sourceRef="ExclusiveGateway_1iola23" targetRef="ExclusiveGateway_03om0r9">
-            <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${false}</bpmn:conditionExpression>
+            <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${isActiveDues == true}</bpmn:conditionExpression>
         </bpmn:sequenceFlow>
         <bpmn:subProcess id="Task_1i2vgl6">
             <bpmn:incoming>isNotActiveDue</bpmn:incoming>
@@ -65,16 +65,21 @@
             </bpmn:endEvent>
             <bpmn:sequenceFlow id="SequenceFlow_0j2pduq" sourceRef="checkingPaymentServiceTask" targetRef="EndEvent_1jv9z62" />
             <bpmn:userTask id="paymentTask" name="PaymentTask" camunda:assignee="${starter_author}">
+                <bpmn:extensionElements>
+                    <camunda:formData>
+                        <camunda:formField id="pay" label="Pay:" type="boolean" />
+                    </camunda:formData>
+                </bpmn:extensionElements>
                 <bpmn:incoming>SequenceFlow_0qrpu8q</bpmn:incoming>
                 <bpmn:outgoing>SequenceFlow_04ymgr5</bpmn:outgoing>
             </bpmn:userTask>
-            <bpmn:serviceTask id="checkingPaymentServiceTask" name="CheckingPaymentService" camunda:expression="${true}">
+            <bpmn:serviceTask id="checkingPaymentServiceTask" name="CheckingPaymentService" camunda:class="com.ftn.upp.service.camundaService.CheckingPaymentService">
                 <bpmn:incoming>SequenceFlow_04ymgr5</bpmn:incoming>
                 <bpmn:outgoing>SequenceFlow_0j2pduq</bpmn:outgoing>
             </bpmn:serviceTask>
         </bpmn:subProcess>
         <bpmn:sequenceFlow id="isNotActiveDue" name="is not active" sourceRef="ExclusiveGateway_1iola23" targetRef="Task_1i2vgl6">
-            <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${true}</bpmn:conditionExpression>
+            <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${isActiveDues == false}</bpmn:conditionExpression>
         </bpmn:sequenceFlow>
         <bpmn:sequenceFlow id="SequenceFlow_0padtb7" sourceRef="fillWorkDataTask" targetRef="saveWorkDataServiceTask" />
         <bpmn:userTask id="fillWorkDataTask" name="FillWorkDataTask" camunda:assignee="${starter_author}">

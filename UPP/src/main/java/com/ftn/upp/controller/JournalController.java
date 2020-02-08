@@ -3,7 +3,9 @@ package com.ftn.upp.controller;
 import com.ftn.upp.dto.*;
 import com.ftn.upp.model.Magazine;
 import com.ftn.upp.model.ScientificField;
+import com.ftn.upp.model.User;
 import com.ftn.upp.service.MagazineService;
+import com.ftn.upp.service.UserService;
 import org.camunda.bpm.engine.FormService;
 import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.TaskService;
@@ -38,12 +40,16 @@ public class JournalController {
     @Autowired
     private MagazineService magazineService;
 
-    @GetMapping(value = "/startProcess")
-    public ResponseEntity<FormFieldsDTO> getFormFields(){
+    @Autowired
+    private UserService userService;
+
+    @GetMapping(value = "/startProcess/{username}")
+    public ResponseEntity<FormFieldsDTO> getFormFieldsAndStartProcess(@PathVariable String username){
 
         ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("Process_Obrada");
-
+        this.runtimeService.setVariable(processInstance.getId(),"loggedUsername", username);
         Task task = taskService.createTaskQuery().processInstanceId(processInstance.getId()).list().get(0);
+
         TaskFormData taskFormData = formService.getTaskFormData(task.getId());
         List<FormField> fields = taskFormData.getFormFields();
 
@@ -52,7 +58,10 @@ public class JournalController {
 
     @GetMapping(value = "/getFormFields/{processInstanceId}")
     public ResponseEntity<FormFieldsDTO> getFormFields(@PathVariable String processInstanceId){
+        String username = (String) this.runtimeService.getVariable(processInstanceId, "loggedUsername");
+
         Task task = taskService.createTaskQuery().processInstanceId(processInstanceId).list().get(0);
+        task.setAssignee(username);
         TaskFormData taskFormData = formService.getTaskFormData(task.getId());
         List<FormField> fields = taskFormData.getFormFields();
 
@@ -98,6 +107,8 @@ public class JournalController {
 
         boolean isOpenAccess = (boolean) this.runtimeService.getVariable(processInstanceId,"isOpenAccess");
 
+     //   taskService.complete(task.getId());
+
         return new ResponseEntity(isOpenAccess,HttpStatus.OK);
 
     }
@@ -111,7 +122,47 @@ public class JournalController {
         runtimeService.setVariable(processInstanceId,"workData",dto);
         formService.submitTaskForm(taskId,map);
 
+   //     taskService.complete(task.getId());
+
+
         return ResponseEntity.ok().build();
+
+    }
+
+    @GetMapping(value = "/getFormFieldsPayment/{processInstanceId}")
+    public ResponseEntity<FormFieldsDTO> getFormFieldsPayment(@PathVariable String processInstanceId){
+
+        Task task = taskService.createTaskQuery().processInstanceId(processInstanceId).singleResult();
+        TaskFormData taskFormData = formService.getTaskFormData(task.getId());
+        List<FormField> fields = taskFormData.getFormFields();
+
+        return new ResponseEntity(new FormFieldsDTO(task.getId(),processInstanceId,fields), HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/submitPayment/{taskId}")
+    public ResponseEntity submitPayment(@RequestBody List<FormSubmissionDTO> dto, @PathVariable String taskId){
+
+        HashMap<String, Object> map = this.mapListToDto(dto);
+
+        Task task = this.taskService.createTaskQuery().taskId(taskId).singleResult();
+        formService.submitTaskForm(task.getId(),map);
+  //      taskService.complete(task.getId());
+
+        return ResponseEntity.ok().build();
+
+    }
+
+    @GetMapping(value = "/isActiveDues/{processInstanceId}")
+    public ResponseEntity<Boolean> isActiveDues(@PathVariable String processInstanceId){
+
+        String username = (String) this.runtimeService.getVariable(processInstanceId,"loggedUsername");
+        User user = this.userService.findUserByUsername(username);
+        if(user == null){
+            return ResponseEntity.notFound().build();
+        }
+        boolean isActiveMembership = user.getDues().isActive();
+
+        return new ResponseEntity<>(isActiveMembership,HttpStatus.OK);
 
     }
 
