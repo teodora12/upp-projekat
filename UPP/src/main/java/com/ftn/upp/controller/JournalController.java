@@ -152,6 +152,7 @@ public class JournalController {
 
     }
 
+
     @GetMapping(value = "/isActiveDues/{processInstanceId}")
     public ResponseEntity<Boolean> isActiveDues(@PathVariable String processInstanceId){
 
