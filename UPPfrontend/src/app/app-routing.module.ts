@@ -16,6 +16,7 @@ import {CoauthorsDataPageComponent} from './component/coauthors-data-page/coauth
 import {WorksPageComponent} from './component/works-page/works-page.component';
 import {CheckPdfPageComponent} from "./component/check-pdf-page/check-pdf-page.component";
 import {WriteCommentPageComponent} from "./component/write-comment-page/write-comment-page.component";
+import {CorrectWorkPageComponent} from "./component/correct-work-page/correct-work-page.component";
 
 
 const appRoutes: Routes = [
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
     { path: 'coauthorsData/:numOfCoauthors/:processInstanceId', component: CoauthorsDataPageComponent},
     { path: 'works', component: WorksPageComponent},
     { path: 'checkPdf', component: CheckPdfPageComponent },
-    { path: 'mainRedactorComment', component: WriteCommentPageComponent}
+    { path: 'mainRedactorComment', component: WriteCommentPageComponent},
+    { path: 'correctingWork', component: CorrectWorkPageComponent}
 
 ];
 

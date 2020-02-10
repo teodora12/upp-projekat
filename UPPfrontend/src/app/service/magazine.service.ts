@@ -70,4 +70,12 @@ export class MagazineService {
     return this.http.post('api/magazines/submitCommentMainRedactor/'.concat(taskId), o);
   }
 
+  getFormFieldsForCorrectionWork(processInstanceId): any {
+      return this.http.get('api/magazines/getWorkForCorrection/'.concat(processInstanceId));
+  }
+
+  submitCorrection(o, taskId): any {
+    return this.http.post('api/magazines/submitCorrection/'.concat(taskId), o);
+  }
+
 }

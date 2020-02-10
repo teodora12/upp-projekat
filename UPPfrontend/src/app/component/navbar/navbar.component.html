@@ -31,6 +31,8 @@
                 <div class="dropdown-menu dropdown-left-manual" aria-labelledby="navbarFeaturesDropdownMenu">
                     <a class="dropdown-item" routerLink="chooseMagazines" *ngIf="userRole === 'ROLE_AUTHOR'"> Magazines </a>
                     <a class="dropdown-item" routerLink="works" *ngIf="userRole === 'ROLE_MAINREDACTOR'"> Works </a>
+                    <a class="dropdown-item" routerLink="correctingWork" *ngIf="userRole === 'ROLE_AUTHOR'"> For correction </a>
+
                 </div>
             </li>
 
