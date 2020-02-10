@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="362c3c6a-76ab-4f8d-9399-c51649cb5909" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/SaveCorrectedWorkService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftn/upp/controller/JournalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/controller/JournalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/obradaPodnetogTeksta.bpmn" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/obradaPodnetogTeksta.bpmn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ftn/upp/controller/JournalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/controller/JournalController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/obradaPodnetogTeksta.bpmn" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/obradaPodnetogTeksta.bpmn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/component/correct-work-page/correct-work-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/correct-work-page/correct-work-page.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/component/correct-work-page/correct-work-page.component.spec.ts" beforeDir="false" />
@@ -115,17 +109,7 @@
       <list>
         <serviceView>
           <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:upp@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:upp@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@2827d804" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </treeState>
         </serviceView>
@@ -166,7 +150,7 @@
       <workItem from="1581155893280" duration="4319000" />
       <workItem from="1581183645224" duration="13284000" />
       <workItem from="1581255154586" duration="33842000" />
-      <workItem from="1581330783216" duration="18709000" />
+      <workItem from="1581330783216" duration="19008000" />
     </task>
     <task id="LOCAL-00001" summary="first commit back">
       <created>1578240576152</created>
@@ -301,7 +285,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581347284144</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="ispravka rada koji je vracen autoru jer ne valja, cuvanje rada, obavestavanje glavnog urednika o prijavi rada, skoro pa 13 tacaka">
+      <created>1581349881493</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1581349881493</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,7 +317,8 @@
     <MESSAGE value="uplata clanarine u slucaju da je casopis open access" />
     <MESSAGE value="ubaceno uploadovanje pdfa, zavrsena clanarina, slanje mejla o prijavi rada autoru i glavnom uredniku, pregled rada, odbijanje rada uz mejl o odbijanju, pregled pdfa, slanje komentara ako treba da se ispravi nesto u radu, ako je rad prihvacen pronalazenje urednika naucne oblasti" />
     <MESSAGE value="slanje mejla sa komentarom o neispravnostima u radu, dodela taska za ispravku autoru, u slucaju da ne ispravi u predvidjenom roku slanje mejla autoru da je njegov rad odbijen" />
-    <option name="LAST_COMMIT_MESSAGE" value="slanje mejla sa komentarom o neispravnostima u radu, dodela taska za ispravku autoru, u slucaju da ne ispravi u predvidjenom roku slanje mejla autoru da je njegov rad odbijen" />
+    <MESSAGE value="ispravka rada koji je vracen autoru jer ne valja, cuvanje rada, obavestavanje glavnog urednika o prijavi rada, skoro pa 13 tacaka" />
+    <option name="LAST_COMMIT_MESSAGE" value="ispravka rada koji je vracen autoru jer ne valja, cuvanje rada, obavestavanje glavnog urednika o prijavi rada, skoro pa 13 tacaka" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="23" key="#Assign_Data_Sources" timestamp="1579032998218">
@@ -345,10 +337,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="81" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1581348455872" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1581347280894">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1581349876705">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1581347280894" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1581349876705" />
     <state width="448" height="466" key="DebuggerActiveHint" timestamp="1581339391718">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -405,10 +397,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="175" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1581349085873" />
-    <state x="275" y="98" key="Vcs.Push.Dialog.v2" timestamp="1581347324897">
+    <state x="275" y="98" key="Vcs.Push.Dialog.v2" timestamp="1581349932697">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="98" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1581347324897" />
+    <state x="275" y="98" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1581349932697" />
     <state x="378" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1581331030715">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -473,11 +465,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/emailService/SendMailService.java</url>
           <line>18</line>
           <option name="timeStamp" value="90" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ftn/upp/controller/JournalController.java</url>
-          <line>401</line>
-          <option name="timeStamp" value="91" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
