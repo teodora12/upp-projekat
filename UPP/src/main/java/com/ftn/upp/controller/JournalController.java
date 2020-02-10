@@ -374,9 +374,41 @@ public class JournalController {
 
     }
 
+    @GetMapping(value = "/getWorkForCorrection/{processInstanceId}")
+    public ResponseEntity<FormFieldsDTO> getWorkForCorrection(@PathVariable String processInstanceId) {
+
+        Task task = taskService.createTaskQuery().processInstanceId(processInstanceId).list().get(0);
+
+        FormFieldsDTO formFieldsDto = new FormFieldsDTO();
+        formFieldsDto.setTaskId(task.getId());
+        formFieldsDto.setProcessInstanceId(task.getProcessInstanceId());
+        TaskFormData taskFormData = formService.getTaskFormData(task.getId());
+        List<FormField> properties = taskFormData.getFormFields();
+        formFieldsDto.setFormFields(properties);
 
 
+        for (FormField fp : properties) {
+            System.out.println(fp.getId() + fp.getType());
+            System.out.println(fp.getDefaultValue());
+        }
 
+        return new ResponseEntity(formFieldsDto, HttpStatus.OK);
+
+    }
+
+    @PostMapping(value = "/submitCorrection/{taskId}")
+    public ResponseEntity submitCorrection(@RequestBody List<FormSubmissionDTO> dto, @PathVariable String taskId) {
+
+        HashMap<String, Object> map = this.mapListToDto(dto);
+
+        Task task = this.taskService.createTaskQuery().taskId(taskId).singleResult();
+        this.runtimeService.setVariable(task.getProcessInstanceId(),"workCorrection",dto);
+        formService.submitTaskForm(task.getId(),map);
+
+        return new ResponseEntity(HttpStatus.OK);
+
+
+    }
 
 
 

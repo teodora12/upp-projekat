@@ -182,11 +182,9 @@
         <bpmn:userTask id="correctingWorkTask" name="CorrectingWorkTask" camunda:assignee="${starter_author}">
             <bpmn:extensionElements>
                 <camunda:formData>
-                    <camunda:formField id="title" label="Title:" type="string" />
-                    <camunda:formField id="theme" label="Theme:" type="string" />
-                    <camunda:formField id="abstract" label="Abstract:" type="string" />
-                    <camunda:formField id="keyTerms" label="Key terms:" type="string" />
-                    <camunda:formField id="pdf" label="PDF:" type="string" />
+                    <camunda:formField id="titleCorrection" label="Title:" type="string" defaultValue="${title}" />
+                    <camunda:formField id="abstractCorrection" label="Abstract:" type="string" defaultValue="${abstract}" />
+                    <camunda:formField id="keyTermsCorrection" label="Key terms:" type="string" defaultValue="${keyTerms}" />
                 </camunda:formData>
                 <camunda:taskListener class="com.ftn.upp.service.camundaService.CorrectingWorkTask" event="create" />
             </bpmn:extensionElements>
@@ -207,7 +205,7 @@
         <bpmn:boundaryEvent id="IntermediateThrowEvent_0pocqxy" attachedToRef="correctingWorkTask">
             <bpmn:outgoing>SequenceFlow_1w6a45u</bpmn:outgoing>
             <bpmn:timerEventDefinition>
-                <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT30S</bpmn:timeDuration>
+                <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT3000S</bpmn:timeDuration>
             </bpmn:timerEventDefinition>
         </bpmn:boundaryEvent>
         <bpmn:sequenceFlow id="SequenceFlow_1w6a45u" sourceRef="IntermediateThrowEvent_0pocqxy" targetRef="sendMailDeclinedWorkServiceTask" />
@@ -225,7 +223,7 @@
         </bpmn:endEvent>
         <bpmn:sequenceFlow id="SequenceFlow_081p3vf" sourceRef="deleteDeclinedWorkSeviceTask" targetRef="EndEvent_0dflf1j" />
         <bpmn:sequenceFlow id="SequenceFlow_1uh1rdf" sourceRef="saveCorrectedWorkServiceTask" targetRef="SendMailServiceTask" />
-        <bpmn:serviceTask id="saveCorrectedWorkServiceTask" name="SaveCorrectedWorkService" camunda:expression="${true}">
+        <bpmn:serviceTask id="saveCorrectedWorkServiceTask" name="SaveCorrectedWorkService" camunda:class="com.ftn.upp.service.camundaService.SaveCorrectedWorkService">
             <bpmn:incoming>SequenceFlow_06dwhcw</bpmn:incoming>
             <bpmn:outgoing>SequenceFlow_1uh1rdf</bpmn:outgoing>
         </bpmn:serviceTask>
