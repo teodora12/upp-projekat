@@ -24,6 +24,7 @@ import { CoauthorsDataPageComponent } from './component/coauthors-data-page/coau
 import { WorksPageComponent } from './component/works-page/works-page.component';
 import { CheckPdfPageComponent } from './component/check-pdf-page/check-pdf-page.component';
 import { WriteCommentPageComponent } from './component/write-comment-page/write-comment-page.component';
+import { CorrectWorkPageComponent } from './component/correct-work-page/correct-work-page.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { WriteCommentPageComponent } from './component/write-comment-page/write-
     CoauthorsDataPageComponent,
     WorksPageComponent,
     CheckPdfPageComponent,
-    WriteCommentPageComponent
+    WriteCommentPageComponent,
+    CorrectWorkPageComponent
   ],
   imports: [
       BrowserModule,

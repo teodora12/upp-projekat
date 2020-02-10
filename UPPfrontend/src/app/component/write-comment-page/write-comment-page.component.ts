@@ -59,6 +59,14 @@ export class WriteCommentPageComponent implements OnInit {
       o.push({fieldId: property, fieldValue: value[property]});
     }
 
+    this.magazineService.submitComment(o, this.formFieldsDTO.taskId).subscribe(res => {
+      this.toastr.successToastr('Success!');
+      this.router.navigate(['/home']);
+
+    }, err => {
+      alert('greska write comment page!!!!!!!');
+    });
+
   }
 
 
