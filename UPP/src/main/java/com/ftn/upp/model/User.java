@@ -222,9 +222,12 @@ public class User implements Serializable,UserDetails{
         this.email = email;
     }
 
+
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+
+        return this.authorities;
     }
 
     public String getPassword() {

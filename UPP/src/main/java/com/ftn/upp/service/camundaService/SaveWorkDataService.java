@@ -1,14 +1,8 @@
 package com.ftn.upp.service.camundaService;
 
 import com.ftn.upp.dto.FormSubmissionDTO;
-import com.ftn.upp.model.KeyTerm;
-import com.ftn.upp.model.Magazine;
-import com.ftn.upp.model.ScientificField;
-import com.ftn.upp.model.Work;
-import com.ftn.upp.service.KeyTermService;
-import com.ftn.upp.service.MagazineService;
-import com.ftn.upp.service.ScientificFieldService;
-import com.ftn.upp.service.WorkService;
+import com.ftn.upp.model.*;
+import com.ftn.upp.service.*;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +18,9 @@ public class SaveWorkDataService implements JavaDelegate {
     private MagazineService magazineService;
 
     @Autowired
+    private UserService userService;
+
+    @Autowired
     private WorkService workService;
 
     @Autowired
@@ -36,7 +33,7 @@ public class SaveWorkDataService implements JavaDelegate {
     public void execute(DelegateExecution delegateExecution) throws Exception {
 
         List<FormSubmissionDTO> workData = (List<FormSubmissionDTO>) delegateExecution.getVariable("workData");
-
+        String username = (String) delegateExecution.getVariable("loggedUsername");
         List<FormSubmissionDTO> choosenMagazine = (List<FormSubmissionDTO>) delegateExecution.getVariable("choosenMagazine");
 
         FormSubmissionDTO title = new FormSubmissionDTO();
@@ -53,8 +50,6 @@ public class SaveWorkDataService implements JavaDelegate {
         for(FormSubmissionDTO dto: workData){
             if(dto.getFieldId().equals("title")){
                 work.setTitle(dto.getFieldValue());
-            } else if (dto.getFieldId().equals("theme")){
-                work.setTheme(dto.getFieldValue());
             } else if (dto.getFieldId().equals("abstract")){
                 work.setAbstr(dto.getFieldValue());
             } else if (dto.getFieldId().equals("pdf")){
@@ -71,13 +66,20 @@ public class SaveWorkDataService implements JavaDelegate {
                 ScientificField scientificField = this.scientificFieldService.findScientificFieldByName(dto.getFieldValue());
                 work.setScientificField(scientificField);
             }
-            this.workService.saveWork(work);
-            magazine.getWorks().add(work);
-            this.magazineService.saveMagazine(magazine);
+
+
 
 
         }
 
+        User user = this.userService.findUserByUsername(username);
+        work.getUsers().add(user);
+
+        //TODO ne snima se autor u usere koji su vezani za work
+
+        this.workService.saveWork(work);
+        magazine.getWorks().add(work);
+        this.magazineService.saveMagazine(magazine);
 
     }
 

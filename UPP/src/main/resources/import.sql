@@ -10,8 +10,8 @@ insert into user(city, country, email, is_reviewer, lastname, name, password, ti
 insert into user(city, country, email, is_reviewer, lastname, name, password, title,enabled,username, dues_id) values ('beograd','srbija','author@yahoo.com',false,'zikic','mirko','$2a$10$d2bYEem94Do7dck2CP14M.p4u3r2CPb7Di9uyrkxdDF0ibSbU5Bpy','title',true,'author', 3);
 insert into user(city, country, email, is_reviewer, lastname, name, password, title,enabled,username) values ('beograd','srbija','reviewer1@yahoo.com',false,'alagic','jugoslav','$2a$10$d2bYEem94Do7dck2CP14M.p4u3r2CPb7Di9uyrkxdDF0ibSbU5Bpy','title',true,'reviewer1@yahoo.com');
 insert into user(city, country, email, is_reviewer, lastname, name, password, title,enabled,username) values ('beograd','srbija','reviewer2@yahoo.com',false,'dekic','zoran','$2a$10$d2bYEem94Do7dck2CP14M.p4u3r2CPb7Di9uyrkxdDF0ibSbU5Bpy','title',true,'reviewer2@yahoo.com');
-insert into user(city, country, email, is_reviewer, lastname, name, password, title,enabled,username) values ('beograd','srbija','mainredactor@yahoo.com',false,'urednik','glavni','$2a$10$d2bYEem94Do7dck2CP14M.p4u3r2CPb7Di9uyrkxdDF0ibSbU5Bpy','title',true,'mainRedactor');
-insert into user(city, country, email, is_reviewer, lastname, name, password, title,enabled,username) values ('beograd','srbija','redactor@yahoo.com',false,'urednik','urednik','$2a$10$d2bYEem94Do7dck2CP14M.p4u3r2CPb7Di9uyrkxdDF0ibSbU5Bpy','title',true,'redactor@yahoo.com');
+insert into user(city, country, email, is_reviewer, lastname, name, password, title,enabled,username) values ('beograd','srbija','mainredactor@yahoo.com',false,'urednik','glavni','$2a$10$d2bYEem94Do7dck2CP14M.p4u3r2CPb7Di9uyrkxdDF0ibSbU5Bpy','title',true,'mainRedactor1');
+insert into user(city, country, email, is_reviewer, lastname, name, password, title,enabled,username) values ('beograd','srbija','redactor@yahoo.com',false,'urednik','urednik','$2a$10$d2bYEem94Do7dck2CP14M.p4u3r2CPb7Di9uyrkxdDF0ibSbU5Bpy','title',true,'redactor');
 
 
 insert into authority(id,name) values (1,'ADMIN');
@@ -31,6 +31,36 @@ insert into scientific_field (id, name) values (5, 'fizika');
 
 
 insert into user_scientific_fields (user_id, scientific_field_id) values (2,1);
+insert into user_scientific_fields (user_id, scientific_field_id) values (7,1);
+insert into user_scientific_fields (user_id, scientific_field_id) values (7,4);
+
+
+insert into key_term (id, name) values (1, 'kljucnarec1');
+insert into key_term (id, name) values (2, 'kljucnarec2');
+insert into key_term (id, name) values (3, 'kljucnarec3');
+insert into key_term (id, name) values (4, 'kljucnarec4');
+insert into key_term (id, name) values (5, 'kljucnarec5');
+insert into key_term (id, name) values (6, 'kljucnarec6');
+
+
+insert into work (id, abstr, pdf, title, scientific_field_id) values (1,'abstr','fajl.pdf','naslov rada',1);
+insert into work (id, abstr, pdf, title, scientific_field_id) values (2,'abstract','file.pdf','naslov rada!!',2);
+insert into work (id, abstr, pdf, title, scientific_field_id) values (3,'abstract','filee.pdf','naslov rada....',4);
+
+
+insert into work_key_terms (work_id, key_terms_id) values (1,1);
+insert into work_key_terms (work_id, key_terms_id) values (1,2);
+insert into work_key_terms (work_id, key_terms_id) values (1,3);
+insert into work_key_terms (work_id, key_terms_id) values (1,4);
+insert into work_key_terms (work_id, key_terms_id) values (1,5);
+insert into work_key_terms (work_id, key_terms_id) values (2,6);
+
+
+/*insert into work_users (work_id, users_id) values (1,3);
+insert into work_users (work_id, users_id) values (2,3);*/
+insert into work_users (work_id, users_id) values (1,6);
+insert into work_users (work_id, users_id) values (2,6);
+insert into work_users (work_id, users_id) values (3,7);
 
 
 insert into user_authority(user_id, authority_id) VALUES (1,1);
@@ -55,9 +85,19 @@ insert into magazine_scientific_fields (magazine_id, scientific_field_id) values
 insert into magazine_scientific_fields (magazine_id, scientific_field_id) values (2,5);
 
 
+insert into magazine_users (magazine_id, users_id) values (1,3);
+insert into magazine_users (magazine_id, users_id) values (1,6);
+insert into magazine_users (magazine_id, users_id) values (2,3);
+insert into magazine_users (magazine_id, users_id) values (2,6);
 insert into magazine_users (magazine_id, users_id) values (1,4);
 insert into magazine_users (magazine_id, users_id) values (1,5);
-insert into magazine_users (magazine_id, users_id) values (2,4);
-insert into magazine_users (magazine_id, users_id) values (2,5);
-insert into magazine_users (magazine_id, users_id) values (1,6);
 insert into magazine_users (magazine_id, users_id) values (1,7);
+insert into magazine_users (magazine_id, users_id) values (2,7);
+
+
+
+
+insert into magazine_works (magazine_id, works_id) values (1,1);
+insert into magazine_works (magazine_id, works_id) values (2,2);
+insert into magazine_works (magazine_id, works_id) values (2,3);
+

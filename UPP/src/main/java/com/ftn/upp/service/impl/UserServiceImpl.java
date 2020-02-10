@@ -12,6 +12,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -114,7 +115,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void SendMailForActivation(User user, String processInstanceId) throws MailException, InterruptedException {
 
-        System.out.println("Slanje emaila...");
+        System.out.println("Slanje emaila za aktivaciju naloga...");
 
         SimpleMailMessage mail = new SimpleMailMessage();
         mail.setTo(user.getEmail());
@@ -125,6 +126,102 @@ public class UserServiceImpl implements UserService {
 
    //     javaMailSender.send(mail);
 
-        System.out.println("Email poslat!");
+        System.out.println("Email za aktivaciju naloga poslat!");
+    }
+
+    @Override
+    public void sendMailWorkDenied(User user) {
+
+        SimpleMailMessage mail = new SimpleMailMessage();
+        mail.setTo(user.getEmail());
+        mail.setFrom(environment.getProperty("spring.mail.username"));
+
+        mail.setSubject("Obavestenje o odbijanju rada");
+        mail.setText("Pozdrav " + user.getName() + "! Obavestavamo Vas da je Vas rad odbijen.");
+
+        javaMailSender.send(mail);
+
+        System.out.println("Email da je odbijen rad autoru poslat!");
+
+
+    }
+
+    @Override
+    public void sendPdfInMail(User user) {
+
+        SimpleMailMessage mail = new SimpleMailMessage();
+        mail.setTo(user.getEmail());
+        mail.setFrom(environment.getProperty("spring.mail.username"));
+
+        mail.setSubject("PDF prihvacenog rada u prilogu");
+
+        mail.setText("Pozdrav " + user.getName() + "! U prilogu se nalazi PDF format prihvacenog rada.");
+
+        javaMailSender.send(mail);
+
+        System.out.println("PDF glavnom uredniku poslat!");
+
+    }
+
+    @Override
+    public void sendMailToRedactor(User user) {
+        SimpleMailMessage mail = new SimpleMailMessage();
+        mail.setTo(user.getEmail());
+        mail.setFrom(environment.getProperty("spring.mail.username"));
+
+        mail.setSubject("Obavestenje o prijavi novog rada");
+
+        mail.setText("Pozdrav " + user.getName() + "! Obavestavamo Vas da je prijavljen novi rad za recenziranje, treba da izaberete recenzente.");
+
+        javaMailSender.send(mail);
+
+        System.out.println("PDF uredniku poslat!");
+    }
+
+    @Override
+    public void sendMailToAuthorForCorrection(User user, String comment) {
+
+        SimpleMailMessage mail = new SimpleMailMessage();
+        mail.setTo(user.getEmail());
+        mail.setFrom(environment.getProperty("spring.mail.username"));
+
+        mail.setSubject("PDF Vaseg rada u prilogu");
+
+        mail.setText("Pozdrav " + user.getName() + "! U prilogu se nalazi PDF format Vaseg rada koji treba da se ispravi uz obrazlozenje: " + comment);
+
+        javaMailSender.send(mail);
+
+        System.out.println("PDF za ispravku uredniku poslat!");
+    }
+
+    @Override
+    public void sendMailsAuthorRedactor(User user) throws InterruptedException {
+
+        System.out.println("Slanje emaila glavnom uredniku i autoru zbog prijave rada...");
+
+        SimpleMailMessage mail = new SimpleMailMessage();
+        mail.setTo(user.getEmail());
+        mail.setFrom(environment.getProperty("spring.mail.username"));
+
+        for(GrantedAuthority authority: user.getAuthorities()) {
+            if (authority.getAuthority().equals("MAIN_REDACTOR")) {
+
+                mail.setSubject("Obavestenje o prijavi novog rada");
+                mail.setText("Pozdrav " + user.getName() + "! Obavestavamo Vas da je prijavljen novi rad u sistem.");
+
+  //              javaMailSender.send(mail);
+
+                System.out.println("Email glavnom uredniku poslat!");
+            } else if(authority.getAuthority().equals("AUTHOR")){
+
+                mail.setSubject("Obavestenje o prijavi Vaseg rada");
+                mail.setText("Pozdrav " + user.getName() + "! Obavestavamo Vas da je Vas rad uspesno prijavljen u sistem.");
+
+  //              javaMailSender.send(mail);
+
+                System.out.println("Email autoru poslat!");
+            }
+        }
+
     }
 }

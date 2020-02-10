@@ -16,5 +16,10 @@ public interface UserService {
     List<User> findAll();
     void SendMailForActivation(User user, String processInstanceId) throws InterruptedException;
     User findUserByAuthority(String authority);
+    void sendMailsAuthorRedactor(User user) throws InterruptedException;
+    void sendMailWorkDenied(User user);
+    void sendPdfInMail(User user);
+    void sendMailToRedactor(User user);
+    void sendMailToAuthorForCorrection(User user,String comment);
 
 }

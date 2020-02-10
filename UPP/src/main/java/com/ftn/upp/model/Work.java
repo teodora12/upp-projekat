@@ -1,12 +1,13 @@
 package com.ftn.upp.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @Table
 @Entity(name = "WORK")
-public class Work {
+public class Work implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,22 +17,34 @@ public class Work {
     private String title;
 
     @Column
-    private String theme;
-
-    @Column
     private String abstr;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne
     private ScientificField scientificField;
 
     @Column
     private String pdf;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany
     private Set<KeyTerm> keyTerms;
+
+    @ManyToMany
+    private Set<User> users;
 
     public Work() {
         this.keyTerms = new HashSet<>();
+        this.users = new HashSet<>();
+    }
+
+
+
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 
     public Long getId() {
@@ -48,14 +61,6 @@ public class Work {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getTheme() {
-        return theme;
-    }
-
-    public void setTheme(String theme) {
-        this.theme = theme;
     }
 
     public String getAbstr() {

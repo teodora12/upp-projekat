@@ -81,75 +81,64 @@
         <bpmn:sequenceFlow id="isNotActiveDue" name="is not active" sourceRef="ExclusiveGateway_1iola23" targetRef="Task_1i2vgl6">
             <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${isActiveDues == false}</bpmn:conditionExpression>
         </bpmn:sequenceFlow>
-        <bpmn:sequenceFlow id="SequenceFlow_0padtb7" sourceRef="fillWorkDataTask" targetRef="saveWorkDataServiceTask" />
         <bpmn:userTask id="fillWorkDataTask" name="FillWorkDataTask" camunda:assignee="${starter_author}">
             <bpmn:extensionElements>
                 <camunda:formData>
                     <camunda:formField id="title" label="Title:" type="string" />
-                    <camunda:formField id="theme" label="Theme:" type="string" />
                     <camunda:formField id="abstract" label="Abstract:" type="string" />
-                    <camunda:formField id="pdf" label="PDF:" type="string" />
+                    <camunda:formField id="pdf" label="PDF:" type="string">
+                        <camunda:properties>
+                            <camunda:property id="type" value="file" />
+                        </camunda:properties>
+                    </camunda:formField>
                     <camunda:formField id="keyTerms" label="Key terms:" type="string" />
                     <camunda:formField id="scientificField" label="Scientific field:" type="enum" />
+                    <camunda:formField id="numOfCoauthors" label="Number of co-authors:" type="long" />
                 </camunda:formData>
             </bpmn:extensionElements>
             <bpmn:incoming>SequenceFlow_1n0wz8l</bpmn:incoming>
-            <bpmn:outgoing>SequenceFlow_0padtb7</bpmn:outgoing>
+            <bpmn:outgoing>SequenceFlow_0dh3srj</bpmn:outgoing>
         </bpmn:userTask>
         <bpmn:serviceTask id="saveWorkDataServiceTask" name="SaveWorkDataService" camunda:class="com.ftn.upp.service.camundaService.SaveWorkDataService">
-            <bpmn:incoming>SequenceFlow_0padtb7</bpmn:incoming>
-            <bpmn:outgoing>SequenceFlow_04xbxhj</bpmn:outgoing>
+            <bpmn:incoming>SequenceFlow_0dh3srj</bpmn:incoming>
+            <bpmn:outgoing>SequenceFlow_105j2co</bpmn:outgoing>
         </bpmn:serviceTask>
-        <bpmn:sequenceFlow id="SequenceFlow_04xbxhj" sourceRef="saveWorkDataServiceTask" targetRef="chooseMainRedactorServiceTask" />
         <bpmn:serviceTask id="chooseMainRedactorServiceTask" name="ChooseMainRedactorService" camunda:class="com.ftn.upp.service.camundaService.ChooseMainRedactorService">
-            <bpmn:incoming>SequenceFlow_04xbxhj</bpmn:incoming>
+            <bpmn:incoming>SequenceFlow_0qz2oz0</bpmn:incoming>
             <bpmn:outgoing>SequenceFlow_0v2bof6</bpmn:outgoing>
         </bpmn:serviceTask>
         <bpmn:sequenceFlow id="SequenceFlow_0v2bof6" sourceRef="chooseMainRedactorServiceTask" targetRef="SendMailServiceTask" />
-        <bpmn:serviceTask id="SendMailServiceTask" name="SendMailService" camunda:expression="${true}">
+        <bpmn:serviceTask id="SendMailServiceTask" name="SendMailService" camunda:class="com.ftn.upp.service.camundaService.emailService.SendMailService">
             <bpmn:incoming>SequenceFlow_0v2bof6</bpmn:incoming>
             <bpmn:incoming>SequenceFlow_1uh1rdf</bpmn:incoming>
             <bpmn:outgoing>SequenceFlow_1w3y0ve</bpmn:outgoing>
-            <bpmn:multiInstanceLoopCharacteristics>
-                <bpmn:loopCardinality xsi:type="bpmn:tFormalExpression">2</bpmn:loopCardinality>
-            </bpmn:multiInstanceLoopCharacteristics>
         </bpmn:serviceTask>
         <bpmn:sequenceFlow id="SequenceFlow_1w3y0ve" sourceRef="SendMailServiceTask" targetRef="checkWorkDataTask" />
-        <bpmn:userTask id="checkWorkDataTask" name="CheckWorkDataTask" camunda:assignee="mainRedactor1">
+        <bpmn:userTask id="checkWorkDataTask" name="CheckWorkDataTask" camunda:candidateGroups="mainRedactor1">
             <bpmn:extensionElements>
                 <camunda:formData>
-                    <camunda:formField id="title" label="Title:" type="string" />
-                    <camunda:formField id="theme" label="Theme:" type="string" />
-                    <camunda:formField id="abstract" label="Abstract:" type="string" />
+                    <camunda:formField id="titleForCorrect" label="Title:" type="string" defaultValue="${title}" />
+                    <camunda:formField id="abstractForCorrect" label="Abstract:" type="string" defaultValue="${abstract}" />
                     <camunda:formField id="author" label="Author:" type="string" defaultValue="${starter_author}" />
-                    <camunda:formField id="keyTerms" label="Key terms:" type="string" />
+                    <camunda:formField id="keyTermsForCorrect" label="Key terms:" type="string" defaultValue="${keyTerms}" />
                     <camunda:formField id="accept" label="Accept:" type="boolean" />
                 </camunda:formData>
+                <camunda:taskListener class="com.ftn.upp.service.camundaService.SetAssigneMainRedactor" event="create" />
             </bpmn:extensionElements>
             <bpmn:incoming>SequenceFlow_1w3y0ve</bpmn:incoming>
-            <bpmn:outgoing>SequenceFlow_0je3mq3</bpmn:outgoing>
+            <bpmn:outgoing>SequenceFlow_197rf2p</bpmn:outgoing>
         </bpmn:userTask>
         <bpmn:exclusiveGateway id="ExclusiveGateway_13ikggj" name="accept?">
-            <bpmn:incoming>SequenceFlow_0je3mq3</bpmn:incoming>
+            <bpmn:incoming>SequenceFlow_0dyqrzr</bpmn:incoming>
             <bpmn:outgoing>SequenceFlow_0rm6khj</bpmn:outgoing>
             <bpmn:outgoing>SequenceFlow_1m9bmqm</bpmn:outgoing>
         </bpmn:exclusiveGateway>
-        <bpmn:sequenceFlow id="SequenceFlow_0je3mq3" sourceRef="checkWorkDataTask" targetRef="ExclusiveGateway_13ikggj" />
-        <bpmn:sequenceFlow id="SequenceFlow_0rm6khj" name="is accepted" sourceRef="ExclusiveGateway_13ikggj" targetRef="checkPDFTask">
+        <bpmn:sequenceFlow id="SequenceFlow_0rm6khj" name="is accepted" sourceRef="ExclusiveGateway_13ikggj" targetRef="sendPdfServiceTask">
             <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${accept == true}</bpmn:conditionExpression>
         </bpmn:sequenceFlow>
         <bpmn:sequenceFlow id="SequenceFlow_1m9bmqm" name="is not accepted" sourceRef="ExclusiveGateway_13ikggj" targetRef="workDeclinedTask">
             <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${accept == false}</bpmn:conditionExpression>
         </bpmn:sequenceFlow>
-        <bpmn:userTask id="workDeclinedTask" name="WorkDeclinedTask" camunda:assignee="mainRedactor1">
-            <bpmn:extensionElements>
-                <camunda:formData>
-                    <camunda:formField id="commentDeclined" label="Comment:" type="string" defaultValue="The theme of your work is not acceptable for this journal" />
-                </camunda:formData>
-            </bpmn:extensionElements>
-            <bpmn:incoming>SequenceFlow_1m9bmqm</bpmn:incoming>
-            <bpmn:outgoing>SequenceFlow_0olq4tp</bpmn:outgoing>
-        </bpmn:userTask>
         <bpmn:sequenceFlow id="SequenceFlow_0olq4tp" sourceRef="workDeclinedTask" targetRef="deleteWorkServiceTask" />
         <bpmn:serviceTask id="deleteWorkServiceTask" name="DeleteWorkService" camunda:expression="${true}">
             <bpmn:incoming>SequenceFlow_0olq4tp</bpmn:incoming>
@@ -159,14 +148,13 @@
             <bpmn:incoming>SequenceFlow_1w36ryy</bpmn:incoming>
         </bpmn:endEvent>
         <bpmn:sequenceFlow id="SequenceFlow_1w36ryy" sourceRef="deleteWorkServiceTask" targetRef="EndEvent_1m717t7" />
-        <bpmn:userTask id="checkPDFTask" name="CheckPDFTask" camunda:assignee="mainRedactor1">
+        <bpmn:userTask id="checkPDFTask" name="CheckPDFTask" camunda:candidateGroups="mainRedactor1">
             <bpmn:extensionElements>
                 <camunda:formData>
-                    <camunda:formField id="pdf" label="PDF:" type="string" />
                     <camunda:formField id="acceptPDF" label="Accept work:" type="boolean" />
                 </camunda:formData>
             </bpmn:extensionElements>
-            <bpmn:incoming>SequenceFlow_0rm6khj</bpmn:incoming>
+            <bpmn:incoming>SequenceFlow_00d4qbw</bpmn:incoming>
             <bpmn:outgoing>SequenceFlow_1t5qmtx</bpmn:outgoing>
         </bpmn:userTask>
         <bpmn:exclusiveGateway id="ExclusiveGateway_1jim8hm" name="accept pdf?">
@@ -186,12 +174,12 @@
             <bpmn:outgoing>SequenceFlow_1bo534q</bpmn:outgoing>
         </bpmn:serviceTask>
         <bpmn:sequenceFlow id="SequenceFlow_1bo534q" sourceRef="saveWorkInWaitingForCorrectionServiceTask" targetRef="sendMailForCorrectionServiceTask" />
-        <bpmn:serviceTask id="sendMailForCorrectionServiceTask" name="SendMailForCorrectionService" camunda:expression="${true}">
+        <bpmn:serviceTask id="sendMailForCorrectionServiceTask" name="SendMailForCorrectionService" camunda:class="com.ftn.upp.service.camundaService.emailService.SendMailForCorrectionService">
             <bpmn:incoming>SequenceFlow_1bo534q</bpmn:incoming>
             <bpmn:outgoing>SequenceFlow_0w6olhf</bpmn:outgoing>
         </bpmn:serviceTask>
         <bpmn:sequenceFlow id="SequenceFlow_0w6olhf" sourceRef="sendMailForCorrectionServiceTask" targetRef="correctingWorkTask" />
-        <bpmn:userTask id="correctingWorkTask" name="CorrectingWorkTask" camunda:assignee="${starter_author}">
+        <bpmn:userTask id="correctingWorkTask" name="CorrectingWorkTask" camunda:candidateGroups="${starter_author}">
             <bpmn:extensionElements>
                 <camunda:formData>
                     <camunda:formField id="title" label="Title:" type="string" />
@@ -200,12 +188,13 @@
                     <camunda:formField id="keyTerms" label="Key terms:" type="string" />
                     <camunda:formField id="pdf" label="PDF:" type="string" />
                 </camunda:formData>
+                <camunda:taskListener class="com.ftn.upp.service.camundaService.CorrectingWorkTask" event="create" />
             </bpmn:extensionElements>
             <bpmn:incoming>SequenceFlow_0w6olhf</bpmn:incoming>
             <bpmn:outgoing>SequenceFlow_06dwhcw</bpmn:outgoing>
         </bpmn:userTask>
         <bpmn:sequenceFlow id="SequenceFlow_0bd3ioi" sourceRef="CommentForCorrectionTask" targetRef="saveWorkInWaitingForCorrectionServiceTask" />
-        <bpmn:userTask id="CommentForCorrectionTask" name="CommentForCorrectionTask" camunda:assignee="mainRedactor1">
+        <bpmn:userTask id="CommentForCorrectionTask" name="CommentForCorrectionTask" camunda:candidateGroups="mainRedactor1">
             <bpmn:extensionElements>
                 <camunda:formData>
                     <camunda:formField id="commentPDFdeclined" label="Comment:" type="string" />
@@ -247,18 +236,10 @@
             <bpmn:outgoing>SequenceFlow_1n0wz8l</bpmn:outgoing>
         </bpmn:exclusiveGateway>
         <bpmn:sequenceFlow id="SequenceFlow_1n0wz8l" sourceRef="ExclusiveGateway_03om0r9" targetRef="fillWorkDataTask" />
-        <bpmn:serviceTask id="findRedactorServiceTask" name="FindRedactorService" camunda:expression="${true}">
-            <bpmn:extensionElements>
-                <camunda:executionListener event="start">
-                    <camunda:script scriptFormat="javascript">var fieldRedactor = "redactor";
-
-                        execution.setVariable("fieldRedactor", fieldRedactor);</camunda:script>
-                </camunda:executionListener>
-            </bpmn:extensionElements>
+        <bpmn:serviceTask id="findRedactorServiceTask" name="FindRedactorService" camunda:class="com.ftn.upp.service.camundaService.FindRedactorService">
             <bpmn:incoming>SequenceFlow_0w48vvh</bpmn:incoming>
             <bpmn:outgoing>SequenceFlow_1a23fr9</bpmn:outgoing>
         </bpmn:serviceTask>
-        <bpmn:sequenceFlow id="SequenceFlow_1a23fr9" sourceRef="findRedactorServiceTask" targetRef="sendNotificationToRedactorServiceTask" />
         <bpmn:serviceTask id="sendNotificationToRedactorServiceTask" name="SendNotificationToRedactorService" camunda:expression="${true}">
             <bpmn:incoming>SequenceFlow_1a23fr9</bpmn:incoming>
             <bpmn:outgoing>SequenceFlow_0y3snjk</bpmn:outgoing>
@@ -307,27 +288,12 @@
             <bpmn:outgoing>SequenceFlow_1eefi2t</bpmn:outgoing>
         </bpmn:userTask>
         <bpmn:sequenceFlow id="SequenceFlow_0y3snjk" sourceRef="sendNotificationToRedactorServiceTask" targetRef="returnReviewersServiceTask" />
-        <bpmn:serviceTask id="returnReviewersServiceTask" name="ReturnReviewersService" camunda:expression="${true}">
-            <bpmn:extensionElements>
-                <camunda:executionListener event="start">
-                    <camunda:script scriptFormat="Groovy">reviewersList = execution.getProcessEngineServices().getIdentityService().createUserQuery().memberOfGroup("reviewers").list();
-
-                        execution.setVariable("reviewersList", reviewersList);
-
-                        String existReviewers = "false";
-
-                        if(reviewersList.size != 0){
-                        existReviewers = "true";
-                        }
-
-                        execution.setVariable("existReviewers", existReviewers);</camunda:script>
-                </camunda:executionListener>
-            </bpmn:extensionElements>
+        <bpmn:serviceTask id="returnReviewersServiceTask" name="ReturnReviewersService" camunda:class="com.ftn.upp.service.camundaService.ReturnReviewersService">
             <bpmn:incoming>SequenceFlow_0y3snjk</bpmn:incoming>
             <bpmn:outgoing>SequenceFlow_0v0b2dm</bpmn:outgoing>
         </bpmn:serviceTask>
         <bpmn:sequenceFlow id="SequenceFlow_0v0b2dm" sourceRef="returnReviewersServiceTask" targetRef="setTimeOfReviewingTask" />
-        <bpmn:userTask id="setTimeOfReviewingTask" name="SetTimeOfReviewingTask" camunda:assignee="${fieldRedactor}">
+        <bpmn:userTask id="setTimeOfReviewingTask" name="SetTimeOfReviewingTask" camunda:assignee="${redactorUsername}">
             <bpmn:extensionElements>
                 <camunda:formData>
                     <camunda:formField id="timeReviewing" label="Duration time:" type="string" />
@@ -599,6 +565,41 @@
             <bpmn:incoming>SequenceFlow_0njwfpi</bpmn:incoming>
             <bpmn:outgoing>SequenceFlow_0u62nda</bpmn:outgoing>
         </bpmn:serviceTask>
+        <bpmn:userTask id="coAuthorsDataTask" name="CoAuthorsDataTask" camunda:assignee="${starter_author}">
+            <bpmn:extensionElements>
+                <camunda:formData>
+                    <camunda:formField id="coauthorName" label="Co-author&#39;s name:" type="string" />
+                    <camunda:formField id="coauthorLastName" label="Co-author&#39;s last name:" type="string" />
+                    <camunda:formField id="coauthorEmail" label="E-mail address:" type="string" />
+                    <camunda:formField id="coauthorCountry" label="Country:" type="string" />
+                    <camunda:formField id="coauthorCity" label="City:" type="string" />
+                </camunda:formData>
+            </bpmn:extensionElements>
+            <bpmn:incoming>SequenceFlow_105j2co</bpmn:incoming>
+            <bpmn:outgoing>SequenceFlow_0qz2oz0</bpmn:outgoing>
+            <bpmn:multiInstanceLoopCharacteristics isSequential="true">
+                <bpmn:loopCardinality xsi:type="bpmn:tFormalExpression">${numOfCoauthors}</bpmn:loopCardinality>
+            </bpmn:multiInstanceLoopCharacteristics>
+        </bpmn:userTask>
+        <bpmn:sequenceFlow id="SequenceFlow_0dh3srj" sourceRef="fillWorkDataTask" targetRef="saveWorkDataServiceTask" />
+        <bpmn:sequenceFlow id="SequenceFlow_105j2co" sourceRef="saveWorkDataServiceTask" targetRef="coAuthorsDataTask" />
+        <bpmn:sequenceFlow id="SequenceFlow_0qz2oz0" sourceRef="coAuthorsDataTask" targetRef="chooseMainRedactorServiceTask" />
+        <bpmn:sequenceFlow id="SequenceFlow_00d4qbw" sourceRef="sendPdfServiceTask" targetRef="checkPDFTask" />
+        <bpmn:serviceTask id="sendPdfServiceTask" name="SendPdfService" camunda:class="com.ftn.upp.service.camundaService.emailService.WorkAcceptedSendEmailService">
+            <bpmn:incoming>SequenceFlow_0rm6khj</bpmn:incoming>
+            <bpmn:outgoing>SequenceFlow_00d4qbw</bpmn:outgoing>
+        </bpmn:serviceTask>
+        <bpmn:serviceTask id="workDeclinedTask" name="WorkDeclinedEmailService" camunda:class="com.ftn.upp.service.camundaService.emailService.WorkDeclinedEmailService">
+            <bpmn:incoming>SequenceFlow_1m9bmqm</bpmn:incoming>
+            <bpmn:outgoing>SequenceFlow_0olq4tp</bpmn:outgoing>
+        </bpmn:serviceTask>
+        <bpmn:sequenceFlow id="SequenceFlow_1a23fr9" sourceRef="findRedactorServiceTask" targetRef="sendNotificationToRedactorServiceTask" />
+        <bpmn:sequenceFlow id="SequenceFlow_197rf2p" sourceRef="checkWorkDataTask" targetRef="returnAcceptServiceTask" />
+        <bpmn:sequenceFlow id="SequenceFlow_0dyqrzr" sourceRef="returnAcceptServiceTask" targetRef="ExclusiveGateway_13ikggj" />
+        <bpmn:serviceTask id="returnAcceptServiceTask" name="ReturnAcceptService" camunda:class="com.ftn.upp.service.camundaService.ReturnAcceptService">
+            <bpmn:incoming>SequenceFlow_197rf2p</bpmn:incoming>
+            <bpmn:outgoing>SequenceFlow_0dyqrzr</bpmn:outgoing>
+        </bpmn:serviceTask>
     </bpmn:process>
     <bpmndi:BPMNDiagram id="BPMNDiagram_1">
         <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_Obrada">
@@ -687,66 +688,51 @@
                     <dc:Bounds x="1047" y="404" width="59" height="14" />
                 </bpmndi:BPMNLabel>
             </bpmndi:BPMNEdge>
-            <bpmndi:BPMNEdge id="SequenceFlow_0padtb7_di" bpmnElement="SequenceFlow_0padtb7">
-                <di:waypoint x="1550" y="687" />
-                <di:waypoint x="1640" y="687" />
-            </bpmndi:BPMNEdge>
             <bpmndi:BPMNShape id="UserTask_0kespua_di" bpmnElement="fillWorkDataTask">
-                <dc:Bounds x="1450" y="647" width="100" height="80" />
+                <dc:Bounds x="1380" y="647" width="100" height="80" />
             </bpmndi:BPMNShape>
             <bpmndi:BPMNShape id="ServiceTask_0gmc8bk_di" bpmnElement="saveWorkDataServiceTask">
-                <dc:Bounds x="1640" y="647" width="100" height="80" />
+                <dc:Bounds x="1510" y="647" width="100" height="80" />
             </bpmndi:BPMNShape>
-            <bpmndi:BPMNEdge id="SequenceFlow_04xbxhj_di" bpmnElement="SequenceFlow_04xbxhj">
-                <di:waypoint x="1740" y="687" />
-                <di:waypoint x="1830" y="687" />
-            </bpmndi:BPMNEdge>
             <bpmndi:BPMNShape id="ServiceTask_1v0724p_di" bpmnElement="chooseMainRedactorServiceTask">
-                <dc:Bounds x="1830" y="647" width="100" height="80" />
+                <dc:Bounds x="1760" y="647" width="100" height="80" />
             </bpmndi:BPMNShape>
             <bpmndi:BPMNEdge id="SequenceFlow_0v2bof6_di" bpmnElement="SequenceFlow_0v2bof6">
-                <di:waypoint x="1930" y="687" />
-                <di:waypoint x="2020" y="687" />
+                <di:waypoint x="1860" y="687" />
+                <di:waypoint x="1910" y="687" />
             </bpmndi:BPMNEdge>
             <bpmndi:BPMNShape id="ServiceTask_0uh0myw_di" bpmnElement="SendMailServiceTask">
-                <dc:Bounds x="2020" y="647" width="100" height="80" />
+                <dc:Bounds x="1910" y="647" width="100" height="80" />
             </bpmndi:BPMNShape>
             <bpmndi:BPMNEdge id="SequenceFlow_1w3y0ve_di" bpmnElement="SequenceFlow_1w3y0ve">
-                <di:waypoint x="2120" y="687" />
-                <di:waypoint x="2210" y="687" />
+                <di:waypoint x="2010" y="687" />
+                <di:waypoint x="2060" y="687" />
             </bpmndi:BPMNEdge>
             <bpmndi:BPMNShape id="UserTask_0ao3083_di" bpmnElement="checkWorkDataTask">
-                <dc:Bounds x="2210" y="647" width="100" height="80" />
+                <dc:Bounds x="2060" y="647" width="100" height="80" />
             </bpmndi:BPMNShape>
             <bpmndi:BPMNShape id="ExclusiveGateway_13ikggj_di" bpmnElement="ExclusiveGateway_13ikggj" isMarkerVisible="true">
-                <dc:Bounds x="2405" y="662" width="50" height="50" />
+                <dc:Bounds x="2345" y="662" width="50" height="50" />
                 <bpmndi:BPMNLabel>
-                    <dc:Bounds x="2412" y="719" width="39" height="14" />
+                    <dc:Bounds x="2352" y="719" width="39" height="14" />
                 </bpmndi:BPMNLabel>
             </bpmndi:BPMNShape>
-            <bpmndi:BPMNEdge id="SequenceFlow_0je3mq3_di" bpmnElement="SequenceFlow_0je3mq3">
-                <di:waypoint x="2310" y="687" />
-                <di:waypoint x="2405" y="687" />
-            </bpmndi:BPMNEdge>
             <bpmndi:BPMNEdge id="SequenceFlow_0rm6khj_di" bpmnElement="SequenceFlow_0rm6khj">
-                <di:waypoint x="2455" y="687" />
-                <di:waypoint x="2550" y="687" />
+                <di:waypoint x="2395" y="687" />
+                <di:waypoint x="2480" y="687" />
                 <bpmndi:BPMNLabel>
-                    <dc:Bounds x="2475" y="669" width="56" height="14" />
+                    <dc:Bounds x="2393" y="669" width="56" height="14" />
                 </bpmndi:BPMNLabel>
             </bpmndi:BPMNEdge>
             <bpmndi:BPMNEdge id="SequenceFlow_1m9bmqm_di" bpmnElement="SequenceFlow_1m9bmqm">
-                <di:waypoint x="2430" y="662" />
-                <di:waypoint x="2430" y="540" />
+                <di:waypoint x="2370" y="662" />
+                <di:waypoint x="2370" y="540" />
                 <bpmndi:BPMNLabel>
-                    <dc:Bounds x="2409" y="598" width="74" height="14" />
+                    <dc:Bounds x="2349" y="627" width="74" height="14" />
                 </bpmndi:BPMNLabel>
             </bpmndi:BPMNEdge>
-            <bpmndi:BPMNShape id="UserTask_1lagqsa_di" bpmnElement="workDeclinedTask">
-                <dc:Bounds x="2380" y="460" width="100" height="80" />
-            </bpmndi:BPMNShape>
             <bpmndi:BPMNEdge id="SequenceFlow_0olq4tp_di" bpmnElement="SequenceFlow_0olq4tp">
-                <di:waypoint x="2480" y="500" />
+                <di:waypoint x="2420" y="500" />
                 <di:waypoint x="2530" y="500" />
             </bpmndi:BPMNEdge>
             <bpmndi:BPMNShape id="ServiceTask_15p6ymx_di" bpmnElement="deleteWorkServiceTask">
@@ -760,7 +746,7 @@
                 <di:waypoint x="2682" y="500" />
             </bpmndi:BPMNEdge>
             <bpmndi:BPMNShape id="UserTask_0lmsx49_di" bpmnElement="checkPDFTask">
-                <dc:Bounds x="2550" y="647" width="100" height="80" />
+                <dc:Bounds x="2600" y="647" width="100" height="80" />
             </bpmndi:BPMNShape>
             <bpmndi:BPMNShape id="ExclusiveGateway_1jim8hm_di" bpmnElement="ExclusiveGateway_1jim8hm" isMarkerVisible="true">
                 <dc:Bounds x="2745" y="662" width="50" height="50" />
@@ -769,7 +755,7 @@
                 </bpmndi:BPMNLabel>
             </bpmndi:BPMNShape>
             <bpmndi:BPMNEdge id="SequenceFlow_1t5qmtx_di" bpmnElement="SequenceFlow_1t5qmtx">
-                <di:waypoint x="2650" y="687" />
+                <di:waypoint x="2700" y="687" />
                 <di:waypoint x="2745" y="687" />
             </bpmndi:BPMNEdge>
             <bpmndi:BPMNEdge id="SequenceFlow_0w48vvh_di" bpmnElement="SequenceFlow_0w48vvh">
@@ -844,8 +830,8 @@
             </bpmndi:BPMNEdge>
             <bpmndi:BPMNEdge id="SequenceFlow_1uh1rdf_di" bpmnElement="SequenceFlow_1uh1rdf">
                 <di:waypoint x="3230" y="1090" />
-                <di:waypoint x="2070" y="1090" />
-                <di:waypoint x="2070" y="727" />
+                <di:waypoint x="1960" y="1090" />
+                <di:waypoint x="1960" y="727" />
             </bpmndi:BPMNEdge>
             <bpmndi:BPMNShape id="ServiceTask_1xez80m_di" bpmnElement="saveCorrectedWorkServiceTask">
                 <dc:Bounds x="3230" y="1050" width="100" height="80" />
@@ -855,15 +841,11 @@
             </bpmndi:BPMNShape>
             <bpmndi:BPMNEdge id="SequenceFlow_1n0wz8l_di" bpmnElement="SequenceFlow_1n0wz8l">
                 <di:waypoint x="1345" y="687" />
-                <di:waypoint x="1450" y="687" />
+                <di:waypoint x="1380" y="687" />
             </bpmndi:BPMNEdge>
             <bpmndi:BPMNShape id="ServiceTask_02dk1vm_di" bpmnElement="findRedactorServiceTask">
                 <dc:Bounds x="2890" y="647" width="100" height="80" />
             </bpmndi:BPMNShape>
-            <bpmndi:BPMNEdge id="SequenceFlow_1a23fr9_di" bpmnElement="SequenceFlow_1a23fr9">
-                <di:waypoint x="2990" y="687" />
-                <di:waypoint x="3090" y="687" />
-            </bpmndi:BPMNEdge>
             <bpmndi:BPMNShape id="ServiceTask_0q6i6jk_di" bpmnElement="sendNotificationToRedactorServiceTask">
                 <dc:Bounds x="3090" y="647" width="100" height="80" />
             </bpmndi:BPMNShape>
@@ -1201,6 +1183,46 @@
             </bpmndi:BPMNShape>
             <bpmndi:BPMNShape id="ServiceTask_0cz763f_di" bpmnElement="Task_0fobxaa">
                 <dc:Bounds x="5200" y="647" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="UserTask_1a8zm85_di" bpmnElement="coAuthorsDataTask">
+                <dc:Bounds x="1630" y="647" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge id="SequenceFlow_0dh3srj_di" bpmnElement="SequenceFlow_0dh3srj">
+                <di:waypoint x="1480" y="687" />
+                <di:waypoint x="1510" y="687" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="SequenceFlow_105j2co_di" bpmnElement="SequenceFlow_105j2co">
+                <di:waypoint x="1610" y="687" />
+                <di:waypoint x="1630" y="687" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="SequenceFlow_0qz2oz0_di" bpmnElement="SequenceFlow_0qz2oz0">
+                <di:waypoint x="1730" y="687" />
+                <di:waypoint x="1760" y="687" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="SequenceFlow_00d4qbw_di" bpmnElement="SequenceFlow_00d4qbw">
+                <di:waypoint x="2580" y="687" />
+                <di:waypoint x="2600" y="687" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNShape id="ServiceTask_1fimfht_di" bpmnElement="sendPdfServiceTask">
+                <dc:Bounds x="2480" y="647" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="ServiceTask_02qaqux_di" bpmnElement="workDeclinedTask">
+                <dc:Bounds x="2320" y="460" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge id="SequenceFlow_1a23fr9_di" bpmnElement="SequenceFlow_1a23fr9">
+                <di:waypoint x="2990" y="687" />
+                <di:waypoint x="3090" y="687" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="SequenceFlow_197rf2p_di" bpmnElement="SequenceFlow_197rf2p">
+                <di:waypoint x="2160" y="687" />
+                <di:waypoint x="2200" y="687" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="SequenceFlow_0dyqrzr_di" bpmnElement="SequenceFlow_0dyqrzr">
+                <di:waypoint x="2300" y="687" />
+                <di:waypoint x="2345" y="687" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNShape id="ServiceTask_0p3tlas_di" bpmnElement="returnAcceptServiceTask">
+                <dc:Bounds x="2200" y="647" width="100" height="80" />
             </bpmndi:BPMNShape>
         </bpmndi:BPMNPlane>
     </bpmndi:BPMNDiagram>
