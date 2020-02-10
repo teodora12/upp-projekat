@@ -36,12 +36,38 @@ export class MagazineService {
     return this.http.get('api/magazines/getFormFieldsPayment/'.concat(processInstanceId));
   }
 
+  getFormFieldsMRedactor(processInstanceId): any {
+    return this.http.get('api/magazines/getFormFieldsMRedactor/'.concat(processInstanceId));
+  }
+
   submitPayment(taskId, o): any {
     return this.http.post('api/magazines/submitPayment/'.concat(taskId), o);
   }
 
   isActiveMembership(processInstanceId): any {
       return this.http.get('api/magazines/isActiveDues/'.concat(processInstanceId));
+  }
+
+  submitCoauthorData(o, taskId): any {
+    return this.http.post('api/magazines/submitCoauthor/'.concat(taskId), o);
+  }
+
+  getWorksForMainRedactor(processInstanceId): any {
+    return this.http.get('api/magazines/getWorks/'.concat(processInstanceId));
+  }
+
+  submitMainRedactor(o, taskId): any {
+    return this.http.post('api/magazines/submitMainRedactorOverview/'.concat(taskId), o);
+
+  }
+
+  submitMainRedactorAcceptPdf(o, taskId): any {
+    return this.http.post('api/magazines/submitMainRedactorAcceptPdf/'.concat(taskId), o);
+
+  }
+
+  submitComment(o, taskId): any {
+    return this.http.post('api/magazines/submitCommentMainRedactor/'.concat(taskId), o);
   }
 
 }

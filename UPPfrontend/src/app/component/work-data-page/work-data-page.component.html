@@ -19,6 +19,7 @@
                                 {{val}}
                             </option>
                         </select>
+                        <input  *ngIf="field.properties.type == 'file'"  type="file" accept="application/pdf"  (change)="fileChoserListener($event.target.files, field)">
                     </div>
                 </div>
 

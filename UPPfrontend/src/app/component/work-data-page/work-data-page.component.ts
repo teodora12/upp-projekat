@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {ToastrManager} from 'ng6-toastr-notifications';
 import {MagazineService} from '../../service/magazine.service';
+import {FormSubmissionWithFileDto} from "../model/FormSubmissionWithFileDto";
 
 @Component({
   selector: 'app-work-data-page',
@@ -20,6 +21,9 @@ export class WorkDataPageComponent implements OnInit {
   scientificFields: any;
   magazineTitle: any;
   choosenScientificField: any;
+  numOfCoauthors: 0;
+  private fileField = null;
+  private fileName = null;
 
   constructor(private router: Router, private toastr: ToastrManager, private magazineService: MagazineService) {
     this.href = this.router.url;
@@ -91,14 +95,38 @@ export class WorkDataPageComponent implements OnInit {
   }
 
   submitWorkData(workData, taskId) {
-    this.magazineService.submitWorkData(workData, taskId).subscribe( res => {
+
+ //   console.log(this.fileField.toString());
+    const y = new FormSubmissionWithFileDto(workData, this.fileField.toString(), this.fileName.toString());
+
+    this.magazineService.submitWorkData(y, taskId).subscribe( res => {
           console.log(res);
+          this.numOfCoauthors = res;
           this.toastr.successToastr('Success!');
+
+          this.router.navigate(['/coauthorsData', this.numOfCoauthors , this.processInstanceId]);
 
         }, err => {
           alert('greska submit work data!!!!!!');
         }
     );
+  }
+
+  fileChoserListener(files: FileList, field) {
+    const fileToUpload = files.item(0);
+    field.fileName = files.item(0).name;
+    this.fileName = files.item(0).name;
+
+    const fileReader = new FileReader();
+
+    fileReader.onload = (e) => {
+
+      field.value = fileReader.result;
+      this.fileField = fileReader.result;
+      // console.log(fileReader.result);
+    };
+
+    fileReader.readAsDataURL(files.item(0));
   }
 
 }

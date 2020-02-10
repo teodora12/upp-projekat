@@ -12,6 +12,10 @@ import {ReviewersPageComponent} from './component/reviewers-page/reviewers-page.
 import {ChooseMagazinePageComponent} from './component/choose-magazine-page/choose-magazine-page.component';
 import {WorkDataPageComponent} from './component/work-data-page/work-data-page.component';
 import {PaymentPageComponent} from './component/payment-page/payment-page.component';
+import {CoauthorsDataPageComponent} from './component/coauthors-data-page/coauthors-data-page.component';
+import {WorksPageComponent} from './component/works-page/works-page.component';
+import {CheckPdfPageComponent} from "./component/check-pdf-page/check-pdf-page.component";
+import {WriteCommentPageComponent} from "./component/write-comment-page/write-comment-page.component";
 
 
 const appRoutes: Routes = [
@@ -25,7 +29,12 @@ const appRoutes: Routes = [
     { path: 'reviewers', component: ReviewersPageComponent},
     { path: 'chooseMagazines', component: ChooseMagazinePageComponent},
     { path: 'workData/:processInstanceId/:magazineTitle', component: WorkDataPageComponent},
-    { path: 'payment/:processInstanceId/:magazineTitle', component: PaymentPageComponent}
+    { path: 'payment/:processInstanceId/:magazineTitle', component: PaymentPageComponent},
+    { path: 'coauthorsData/:numOfCoauthors/:processInstanceId', component: CoauthorsDataPageComponent},
+    { path: 'works', component: WorksPageComponent},
+    { path: 'checkPdf', component: CheckPdfPageComponent },
+    { path: 'mainRedactorComment', component: WriteCommentPageComponent}
+
 ];
 
 @NgModule({

@@ -23,26 +23,31 @@ export class NavbarComponent implements OnInit {
       this.userRole = '';
     } else {
       for (const role of user.roles) {
-        if (role.authority === 'ROLE_ADMIN') {
+        if (role.authority === 'ADMIN') {
           this.userRole = 'ROLE_ADMIN';
+        } else if (role.authority === 'AUTHOR') {
+          this.userRole = 'ROLE_AUTHOR';
+        } else if (role.authority === 'MAIN_REDACTOR') {
+          this.userRole = 'ROLE_MAINREDACTOR';
         }
       }
     }
 
     console.log(this.userRole);
     const userTemp = JSON.parse(localStorage.getItem('loggedUser'));
-    if (userTemp !== null) {
-      this.userService.getUserByUsername(userTemp.sub).subscribe(user => {
-        this.user = user;
-      });
-    }
+    // if (userTemp !== null) {
+    //   this.userService.getUserByUsername(userTemp.sub).subscribe(user => {
+    //     this.user = user;
+    //   });
+    // }
   }
 
 
   logout() {
-    localStorage.clear();
+//    localStorage.clear();
+    localStorage.removeItem('loggedUser');
     this.userRole = '';
-    location.reload();
+//    location.reload();
     this.router.navigate(['/login']);
   }
 

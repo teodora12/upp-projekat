@@ -11,13 +11,13 @@
         <ul id="user" class="navbar-nav ml-auto" style="margin-right: 5%">
 
             <li  class="nav-item active" >
-                <a class="nav-link" routerLink="reviewers"> <!-- *ngIf="userRole === 'ADMIN'" -->  Requests  </a>
+                <a class="nav-link" routerLink="reviewers"  *ngIf="userRole === 'ROLE_ADMIN'">    Requests  </a>
             </li>
             <li  class="nav-item active" >
-                <a class="nav-link" routerLink="login" >Log In  </a>
+                <a class="nav-link" routerLink="login" *ngIf="userRole === ''" >Log In  </a>
             </li>
             <li  class="nav-item active" >
-                <a class="nav-link" routerLink="register">Register </a>
+                <a class="nav-link" routerLink="register" *ngIf="userRole === ''" >Register </a>
 
             </li>
             <li  class="nav-item active" >
@@ -29,8 +29,8 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarFeaturesDropdownMenu" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false"> </a>
                 <div class="dropdown-menu dropdown-left-manual" aria-labelledby="navbarFeaturesDropdownMenu">
-                    <a class="dropdown-item" routerLink="chooseMagazines"> Magazines </a>
-                    <a class="dropdown-item" routerLink=""> </a>
+                    <a class="dropdown-item" routerLink="chooseMagazines" *ngIf="userRole === 'ROLE_AUTHOR'"> Magazines </a>
+                    <a class="dropdown-item" routerLink="works" *ngIf="userRole === 'ROLE_MAINREDACTOR'"> Works </a>
                 </div>
             </li>
 

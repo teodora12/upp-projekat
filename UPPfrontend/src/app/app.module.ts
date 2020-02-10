@@ -20,6 +20,10 @@ import { ReviewersPageComponent } from './component/reviewers-page/reviewers-pag
 import { ChooseMagazinePageComponent } from './component/choose-magazine-page/choose-magazine-page.component';
 import { WorkDataPageComponent } from './component/work-data-page/work-data-page.component';
 import { PaymentPageComponent } from './component/payment-page/payment-page.component';
+import { CoauthorsDataPageComponent } from './component/coauthors-data-page/coauthors-data-page.component';
+import { WorksPageComponent } from './component/works-page/works-page.component';
+import { CheckPdfPageComponent } from './component/check-pdf-page/check-pdf-page.component';
+import { WriteCommentPageComponent } from './component/write-comment-page/write-comment-page.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,11 @@ import { PaymentPageComponent } from './component/payment-page/payment-page.comp
     ReviewersPageComponent,
     ChooseMagazinePageComponent,
     WorkDataPageComponent,
-    PaymentPageComponent
+    PaymentPageComponent,
+    CoauthorsDataPageComponent,
+    WorksPageComponent,
+    CheckPdfPageComponent,
+    WriteCommentPageComponent
   ],
   imports: [
       BrowserModule,

@@ -54,6 +54,11 @@ export class ChooseMagazinePageComponent implements OnInit {
       //     }
       // );
 
+      localStorage.setItem('processInstanceId', this.processInstanceId);
+
+      console.log(localStorage.getItem('processInstanceId'));
+
+
       this.getMagazines(this.processInstanceId);
 
       this.isActiveMembership(this.processInstanceId);

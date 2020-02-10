@@ -1,10 +1,11 @@
+<p>coauthors-data-page works!</p>
 <div class="container">
     <div class="row">
         <div class="offset-3"></div>
         <div class="col-md-6">
-            <form name="registerForm" #f="ngForm" (submit)="submitPayment()"  novalidate class="form-signin">
+            <form name="registerForm" #f="ngForm" (submit)="submit(f.value,f)"  novalidate class="form-signin">
 
-                <h2 class="form-signin-heading">Payment</h2>
+                <h2 class="form-signin-heading">Co-author's data</h2>
 
                 <div *ngFor="let field of formFields">
                     <div class="form-group">
@@ -23,10 +24,9 @@
                 </div>
 
 
-
                 <button type="submit"  class="btn btn-primary pull-right">
                     <i class="fa fa-envelope-o"></i>
-                    <span> Submit</span>
+                    <span> Submit co-author</span>
                 </button>
             </form>
         </div>
