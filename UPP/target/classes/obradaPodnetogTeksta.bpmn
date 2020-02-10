@@ -179,7 +179,7 @@
             <bpmn:outgoing>SequenceFlow_0w6olhf</bpmn:outgoing>
         </bpmn:serviceTask>
         <bpmn:sequenceFlow id="SequenceFlow_0w6olhf" sourceRef="sendMailForCorrectionServiceTask" targetRef="correctingWorkTask" />
-        <bpmn:userTask id="correctingWorkTask" name="CorrectingWorkTask" camunda:candidateGroups="${starter_author}">
+        <bpmn:userTask id="correctingWorkTask" name="CorrectingWorkTask" camunda:assignee="${starter_author}">
             <bpmn:extensionElements>
                 <camunda:formData>
                     <camunda:formField id="title" label="Title:" type="string" />
@@ -211,7 +211,7 @@
             </bpmn:timerEventDefinition>
         </bpmn:boundaryEvent>
         <bpmn:sequenceFlow id="SequenceFlow_1w6a45u" sourceRef="IntermediateThrowEvent_0pocqxy" targetRef="sendMailDeclinedWorkServiceTask" />
-        <bpmn:serviceTask id="sendMailDeclinedWorkServiceTask" name="SendMailDeclinedWorkService" camunda:expression="${true}">
+        <bpmn:serviceTask id="sendMailDeclinedWorkServiceTask" name="SendMailDeclinedWorkService" camunda:class="com.ftn.upp.service.camundaService.emailService.WorkDeclinedEmailService">
             <bpmn:incoming>SequenceFlow_1w6a45u</bpmn:incoming>
             <bpmn:outgoing>SequenceFlow_1bkbfgs</bpmn:outgoing>
         </bpmn:serviceTask>

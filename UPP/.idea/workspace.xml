@@ -2,76 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="362c3c6a-76ab-4f8d-9399-c51649cb5909" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/dto/FormSubmissionWithFileDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/CorrectingWorkTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/FindRedactorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/ReturnAcceptService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/ReturnReviewersService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/SetAssigneMainRedactor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/emailService/SendMailForCorrectionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/emailService/SendMailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/emailService/SendNotificationToRedactorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/emailService/WorkAcceptedSendEmailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/emailService/WorkDeclinedEmailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/dto/FormSubmissionWithFileDTO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/service/camundaService/CorrectingWorkTask.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/service/camundaService/FindRedactorService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/service/camundaService/ReturnAcceptService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/service/camundaService/ReturnReviewersService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/service/camundaService/SetAssigneMainRedactor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/service/camundaService/emailService/SendMailForCorrectionService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/service/camundaService/emailService/SendMailService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/service/camundaService/emailService/SendNotificationToRedactorService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/service/camundaService/emailService/WorkAcceptedSendEmailService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/service/camundaService/emailService/WorkDeclinedEmailService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/check-pdf-page/check-pdf-page.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/check-pdf-page/check-pdf-page.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/check-pdf-page/check-pdf-page.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/coauthors-data-page/coauthors-data-page.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/coauthors-data-page/coauthors-data-page.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/coauthors-data-page/coauthors-data-page.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/model/FormSubmissionWithFileDto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/works-page/works-page.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/works-page/works-page.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/works-page/works-page.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/write-comment-page/write-comment-page.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/write-comment-page/write-comment-page.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/write-comment-page/write-comment-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffe9b7d6-fd86-4a3b-ba52-b340b815a6ce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffe9b7d6-fd86-4a3b-ba52-b340b815a6ce.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftn/upp/controller/JournalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/controller/JournalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftn/upp/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftn/upp/model/Work.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/model/Work.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftn/upp/repository/MagazineRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/repository/MagazineRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftn/upp/repository/WorkRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/repository/WorkRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/WorkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/WorkService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/SaveWorkDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/SaveWorkDataService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftn/upp/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/import.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/obradaPodnetogTeksta.bpmn" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/obradaPodnetogTeksta.bpmn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ftn/upp/controller/JournalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/controller/JournalController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ftn/upp/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ftn/upp/model/Work.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/model/Work.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ftn/upp/repository/MagazineRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/repository/MagazineRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ftn/upp/repository/WorkRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/repository/WorkRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ftn/upp/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ftn/upp/service/camundaService/SaveWorkDataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/service/camundaService/SaveWorkDataService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ftn/upp/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ftn/upp/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/import.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/obradaPodnetogTeksta.bpmn" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/obradaPodnetogTeksta.bpmn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/component/choose-magazine-page/choose-magazine-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/choose-magazine-page/choose-magazine-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/component/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/navbar/navbar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/component/navbar/navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/navbar/navbar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/component/payment-page/payment-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/payment-page/payment-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/component/work-data-page/work-data-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/work-data-page/work-data-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/component/work-data-page/work-data-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/work-data-page/work-data-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/service/magazine.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/service/magazine.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UPPfrontend/src/app/component/write-comment-page/write-comment-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../UPPfrontend/src/app/component/write-comment-page/write-comment-page.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +149,7 @@
       <workItem from="1581155893280" duration="4319000" />
       <workItem from="1581183645224" duration="13284000" />
       <workItem from="1581255154586" duration="33842000" />
-      <workItem from="1581330783216" duration="13903000" />
+      <workItem from="1581330783216" duration="16291000" />
     </task>
     <task id="LOCAL-00001" summary="first commit back">
       <created>1578240576152</created>
@@ -335,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581187435177</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="ubaceno uploadovanje pdfa, zavrsena clanarina, slanje mejla o prijavi rada autoru i glavnom uredniku, pregled rada, odbijanje rada uz mejl o odbijanju, pregled pdfa, slanje komentara ako treba da se ispravi nesto u radu, ako je rad prihvacen pronalazenje urednika naucne oblasti">
+      <created>1581344934639</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1581344934640</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,7 +300,8 @@
     <MESSAGE value="submit forme za work data, cuvanje rada i pronalazenje glavnog urednika za izabrani casopis preko camundinih servisa" />
     <MESSAGE value="uplata clanarine u slucaju da casopis nije open access" />
     <MESSAGE value="uplata clanarine u slucaju da je casopis open access" />
-    <option name="LAST_COMMIT_MESSAGE" value="uplata clanarine u slucaju da je casopis open access" />
+    <MESSAGE value="ubaceno uploadovanje pdfa, zavrsena clanarina, slanje mejla o prijavi rada autoru i glavnom uredniku, pregled rada, odbijanje rada uz mejl o odbijanju, pregled pdfa, slanje komentara ako treba da se ispravi nesto u radu, ako je rad prihvacen pronalazenje urednika naucne oblasti" />
+    <option name="LAST_COMMIT_MESSAGE" value="ubaceno uploadovanje pdfa, zavrsena clanarina, slanje mejla o prijavi rada autoru i glavnom uredniku, pregled rada, odbijanje rada uz mejl o odbijanju, pregled pdfa, slanje komentara ako treba da se ispravi nesto u radu, ako je rad prihvacen pronalazenje urednika naucne oblasti" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="23" key="#Assign_Data_Sources" timestamp="1579032998218">
@@ -377,10 +320,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="81" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1581338313316" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1581187432369">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1581344925371">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1581187432369" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1581344925371" />
     <state width="448" height="466" key="DebuggerActiveHint" timestamp="1581339391718">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -389,58 +332,58 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1579214048393" />
-    <state width="1323" height="214" key="GridCell.Tab.0.bottom" timestamp="1581343686543">
+    <state width="1323" height="307" key="GridCell.Tab.0.bottom" timestamp="1581346905246">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="214" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1581343686543" />
-    <state width="1323" height="214" key="GridCell.Tab.0.center" timestamp="1581343686543">
+    <state width="1323" height="307" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1581346905246" />
+    <state width="1323" height="307" key="GridCell.Tab.0.center" timestamp="1581346905245">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="214" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1581343686543" />
-    <state width="1323" height="214" key="GridCell.Tab.0.left" timestamp="1581343686543">
+    <state width="1323" height="307" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1581346905245" />
+    <state width="1323" height="307" key="GridCell.Tab.0.left" timestamp="1581346905245">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="214" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1581343686543" />
-    <state width="1323" height="214" key="GridCell.Tab.0.right" timestamp="1581343686543">
+    <state width="1323" height="307" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1581346905245" />
+    <state width="1323" height="307" key="GridCell.Tab.0.right" timestamp="1581346905246">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="214" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1581343686543" />
-    <state width="1323" height="214" key="GridCell.Tab.1.bottom" timestamp="1581343526251">
+    <state width="1323" height="307" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1581346905246" />
+    <state width="1323" height="307" key="GridCell.Tab.1.bottom" timestamp="1581346886465">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="214" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1581343526251" />
-    <state width="1323" height="214" key="GridCell.Tab.1.center" timestamp="1581343526250">
+    <state width="1323" height="307" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1581346886465" />
+    <state width="1323" height="307" key="GridCell.Tab.1.center" timestamp="1581346886465">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="214" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1581343526250" />
-    <state width="1323" height="214" key="GridCell.Tab.1.left" timestamp="1581343526250">
+    <state width="1323" height="307" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1581346886465" />
+    <state width="1323" height="307" key="GridCell.Tab.1.left" timestamp="1581346886465">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="214" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1581343526250" />
-    <state width="1323" height="214" key="GridCell.Tab.1.right" timestamp="1581343526250">
+    <state width="1323" height="307" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1581346886465" />
+    <state width="1323" height="307" key="GridCell.Tab.1.right" timestamp="1581346886465">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="214" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1581343526250" />
-    <state width="1323" height="214" key="GridCell.Tab.2.bottom" timestamp="1581343424928">
+    <state width="1323" height="307" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1581346886465" />
+    <state width="1323" height="307" key="GridCell.Tab.2.bottom" timestamp="1581346729870">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="214" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1581343424928" />
-    <state width="1323" height="214" key="GridCell.Tab.2.center" timestamp="1581343424928">
+    <state width="1323" height="307" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1581346729870" />
+    <state width="1323" height="307" key="GridCell.Tab.2.center" timestamp="1581346729869">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="214" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1581343424928" />
-    <state width="1323" height="214" key="GridCell.Tab.2.left" timestamp="1581343424928">
+    <state width="1323" height="307" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1581346729869" />
+    <state width="1323" height="307" key="GridCell.Tab.2.left" timestamp="1581346729869">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="214" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1581343424928" />
-    <state width="1323" height="214" key="GridCell.Tab.2.right" timestamp="1581343424928">
+    <state width="1323" height="307" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1581346729869" />
+    <state width="1323" height="307" key="GridCell.Tab.2.right" timestamp="1581346729869">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="214" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1581343424928" />
-    <state x="275" y="98" key="Vcs.Push.Dialog.v2" timestamp="1581187469994">
+    <state width="1323" height="307" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1581346729869" />
+    <state x="275" y="98" key="Vcs.Push.Dialog.v2" timestamp="1581344994117">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="98" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1581187469994" />
+    <state x="275" y="98" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1581344994117" />
     <state x="378" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1581331030715">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -449,10 +392,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="380" y="96" width="606" height="536" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1579278056836" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1581340950059">
+    <state x="339" y="162" key="run.anything.popup" timestamp="1581346525240">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1581340950059" />
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1581346525240" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1581287663963">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -472,24 +415,9 @@
           <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/emailService/WorkDeclinedEmailService.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="63" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/emailService/WorkAcceptedSendEmailService.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="64" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/FindRedactorService.java</url>
           <line>31</line>
           <option name="timeStamp" value="65" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/emailService/SendMailForCorrectionService.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/CorrectingWorkTask.java</url>
@@ -497,39 +425,24 @@
           <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ftn/upp/controller/JournalController.java</url>
-          <line>236</line>
-          <option name="timeStamp" value="69" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ftn/upp/controller/JournalController.java</url>
-          <line>315</line>
-          <option name="timeStamp" value="72" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/ReturnAcceptService.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="73" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ftn/upp/controller/JournalController.java</url>
-          <line>259</line>
-          <option name="timeStamp" value="75" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ftn/upp/controller/JournalController.java</url>
-          <line>137</line>
-          <option name="timeStamp" value="77" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ftn/upp/controller/JournalController.java</url>
-          <line>249</line>
-          <option name="timeStamp" value="82" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/FindRedactorService.java</url>
           <line>43</line>
           <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ftn/upp/controller/JournalController.java</url>
+          <line>357</line>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ftn/upp/controller/JournalController.java</url>
+          <line>369</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ftn/upp/service/camundaService/emailService/WorkDeclinedEmailService.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="86" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
